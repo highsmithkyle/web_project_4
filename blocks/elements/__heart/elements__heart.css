@@ -1,0 +1,13 @@
+.elements__heart {
+    
+    background-image: url(../../../images/heart-vector.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    
+    justify-self: center;
+    margin: 30px 18px 30px auto;
+    height: 21px;
+    width: 19px;
+    
+}
