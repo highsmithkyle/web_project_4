@@ -14,7 +14,18 @@
     grid-template-rows: repeat(2, 1fr);
     row-gap: 20px;
     column-gap: 17px;
+    border: solid aqua;
     
     
     
+}
+
+@media screen and (max-width: 320px) {
+    .elements {
+        width: 320px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        row-gap: 20px;
+        column-gap: 17px;
+    }
 }
