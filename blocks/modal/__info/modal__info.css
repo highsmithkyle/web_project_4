@@ -1,0 +1,14 @@
+.modal__info {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    width: 358px;
+    height: 27.26px;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0 36px;
+    
+}
+
+.modal__info:last-of-type {
+    margin-top: 30px;
+}

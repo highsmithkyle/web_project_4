@@ -1,17 +1,11 @@
 .profile__name-container {
     display: flex;
-    
-   
-   
-    
 }
 
 @media screen and (max-width: 320px) {
     .profile__name-container {
         margin-left: 29px;
-        
-        
-        
+
     }
 
 }

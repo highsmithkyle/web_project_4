@@ -1,5 +1,9 @@
 @import url(../modal/__box/modal__box.css);
 @import url(../modal/__title/modal__title.css);
+@import url(../modal/__form/modal__form.css);
+@import url(../modal/__name-input/modal__name-input.css);
+@import url(../modal/__info/modal__info.css);
+@import url(../modal/__about-me-input/modal__about-me-input.css);
 @import url(../modal/__save-button/modal__save-button.css);
 
 .modal {
@@ -16,6 +20,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
 }

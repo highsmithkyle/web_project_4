@@ -1,3 +1,6 @@
 .modal__name-input {
-    
+    width: 358px;
+    border-bottom: 1px solid black;
+    margin: 0 36px;
+
 }
