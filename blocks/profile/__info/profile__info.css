@@ -1,7 +1,6 @@
 .profile__info {
  
- display: flex;
- width: 415px;
+ margin: 22px 0 21px;
  
  
 }
@@ -11,7 +10,7 @@
     .profile__info {
            
         justify-content: center;
-        width: 224px;
+        width: 282px;
         margin: 0 auto;
         
     }

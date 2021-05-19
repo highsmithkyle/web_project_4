@@ -1,18 +1,16 @@
 .profile__name-container {
     display: flex;
-    flex-direction: column;
-    margin-top: 22px;
+    
+   
    
     
 }
 
 @media screen and (max-width: 320px) {
     .profile__name-container {
+        margin-left: 29px;
         
-        margin: 0 0;
         
-        width: 282px;
-        margin-top: 26.25;
         
     }
 

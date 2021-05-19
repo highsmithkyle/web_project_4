@@ -10,6 +10,25 @@
 
 <body class="page">
 
+    <div class="modal">
+        <div class="modal__box">
+            <h2 class="modal__title">Edit profile</h2>
+
+
+        <form class="modal__form" name="info">
+            
+            <input class="modal__name-input" type="text" name="name" placeholder="Name" required>
+            <input class="modal__about-me-input" type="text" name="about-me" placeholder="About me" required> 
+            
+        
+
+        </form>
+
+        <button class="modal__save-button">Save</button>
+
+        </div>
+    </div>
+
     <header class="header">
         <img class="header__logo" src="./images/Vector.png" alt="vector" />
     </header>
@@ -29,9 +48,12 @@
 
                 <div class="profile__name-container">
                     <h2 class="profile__title">Jacques Cousteau</h2>
-                    <p class="profile__subtitle">Explorer</p>
+                    <button class="profile__edit-button"></button>
                 </div>
-                <button class="profile__edit-button"></button>
+
+                <p class="profile__subtitle">Explorer</p>
+
+                
             </div>
 
             <button class="profile__add-button"></button>
