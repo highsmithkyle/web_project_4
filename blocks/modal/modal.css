@@ -1,6 +1,7 @@
 @import url(../modal/__box/modal__box.css);
 @import url(../modal/__title/modal__title.css);
-@import url(../modal/__form/modal__form.css);
+@import url(../modal/__edit-form/modal__edit-form.css);
+@import url(../modal/__open/modal__open.css);
 @import url(../modal/__name-input/modal__name-input.css);
 @import url(../modal/__info/modal__info.css);
 @import url(../modal/__about-me-input/modal__about-me-input.css);
@@ -17,7 +18,8 @@
     top: 0;
     right: 0;
     z-index: 999;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    
 }
