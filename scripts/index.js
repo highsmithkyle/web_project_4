@@ -6,7 +6,7 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 
 profileEditButton.addEventListener("click", function () {
     const modalEl = document.querySelector(".modal");
-    modalEl.classList.add("modal__open");
+    modalEl.classList.add("modal_open");
   });
 
 
