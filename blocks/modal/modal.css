@@ -11,6 +11,7 @@
 
 
 .modal {
+    display: none;
     box-sizing: border-box;
     width: 99.9%;
     height: 99.9%;
@@ -21,7 +22,6 @@
     top: 0;
     right: 0;
     z-index: 999;
-    display: none;
     justify-content: center;
     align-items: center;
     
