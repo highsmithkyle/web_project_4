@@ -8,6 +8,10 @@ const modalEl = document.querySelector(".modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 
+const heartEl = document.querySelector(".elements__heart");
+const elementsText = document.querySelector(".elements__text");
+
+
 function closeModal() {
   modalEl.classList.remove("modal_open");
 }
@@ -17,6 +21,7 @@ function openModal() {
 }
 
 
+
 profileEditButton.addEventListener("click", function () {
   openModal();
 });
@@ -24,6 +29,8 @@ profileEditButton.addEventListener("click", function () {
 formCloseButton.addEventListener("click", function () {
   closeModal();
 });
+
+
 
 editFormNameInput.value = profileTitle.textContent;
 editFormAboutMeInput.value = profileSubtitle.textContent;
@@ -35,8 +42,3 @@ editFormEL.addEventListener("submit", function (event) {
   profileSubtitle.textContent = editFormAboutMeInput.value;
   closeModal();
 });
-
-
-
-
-
