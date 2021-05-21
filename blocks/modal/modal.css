@@ -1,4 +1,3 @@
-
 @import url(../modal/__box/modal__box.css);
 @import url(../modal/__title/modal__title.css);
 @import url(../modal/__edit-form/modal__edit-form.css);
@@ -7,9 +6,6 @@
 @import url(../modal/__about-me-input/modal__about-me-input.css);
 @import url(../modal/__save-button/modal__save-button.css);
 @import url(../modal/__close-button/modal__close-button.css);
-
-
-
 .modal {
     display: none;
     box-sizing: border-box;
@@ -24,7 +20,4 @@
     z-index: 999;
     justify-content: center;
     align-items: center;
-    
-    
-    
 }

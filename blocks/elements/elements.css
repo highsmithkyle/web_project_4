@@ -3,20 +3,13 @@
 @import url(../elements/__text/elements__text.css);
 @import url(../elements/__text-container/elements__text-container.css);
 @import url(../elements/__heart/elements__heart.css);
-
-
 .elements {
-
-   
     width: calc(100% - 400px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     row-gap: 20px;
     column-gap: 17px;
-    
-    
-    
 }
 
 @media screen and (max-width: 320px) {

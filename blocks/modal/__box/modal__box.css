@@ -1,13 +1,19 @@
 .modal__box {
-    width: 430px;
-    height: 330px; 
-    margin: auto;
-    background-color: #fff;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    z-index: 1;
-    box-sizing: border-box;
-    border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  z-index: 1;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .modal__box {
+    max-width: 320px;
+  }
 }

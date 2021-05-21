@@ -7,10 +7,7 @@
 @import url(../profile/__title/profile__title.css);
 @import url(../profile/__edit-button/profile__edit-button.css);
 @import url(../profile/__add-button/profile__add-button.css);
-
-
 .profile {
-    
     width: 100%;
     display: flex;
     margin: 40px auto 50px;
@@ -24,4 +21,3 @@
         align-items: center;
     }
 }
-

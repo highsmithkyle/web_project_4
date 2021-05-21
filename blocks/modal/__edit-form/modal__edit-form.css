@@ -1,5 +1,12 @@
-.modal__edit-form.css {
-    width: 430px;
-    height: 330px;
-    
+.modal__edit-form {
+  width: 430px;
+  height: 330px;
+  transition: .5s ease-in-out;
+}
+
+@media screen and (max-width: 650px) {
+  .modal__edit-form {
+    width: 282px;
+    justify-self: center;
+  }
 }

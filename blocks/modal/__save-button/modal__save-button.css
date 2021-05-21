@@ -1,9 +1,27 @@
 .modal__save-button {
-    width: 358px;
-    height: 50.15px;
-    background-color: black;
-    color: white;
-    margin: 48px 36px 36.51px;
-    font-size: 18px;
-    line-height: 21.78px;
+  width: 358px;
+  height: 50.15px;
+  background-color: black;
+  color: white;
+  margin: 48px 36px 36.51px;
+  font-size: 18px;
+  line-height: 21.78px;
+  border-radius: 2px;
+  transition: .5s ease-in-out;
+}
+
+.modal__save-button:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+  .modal__save-button {
+    width: 238px;
+    height: 46px;
+    margin: 46px 22px 25px;
+    font-size: 14px;
+    line-height: 17px;
+    max-width: 238px;
+  }
 }

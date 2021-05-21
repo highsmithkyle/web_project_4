@@ -5,6 +5,14 @@
      margin: 34px 64px 54px 36px;
      width: 330px;
      color: black;
-     
-     
+}
+
+@media screen and (max-width: 320px) {
+     .modal__title {
+          font-size: 18px;
+          line-height: 27.78px;
+          font-weight: 900;
+          margin: 25px 22px 76px;
+          width: 238px;
+     }
 }

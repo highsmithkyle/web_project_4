@@ -1,18 +1,11 @@
 .profile__info {
- 
- margin: 22px 0 21px;
- 
- 
+    margin: 22px 0 21px;
 }
-
 
 @media screen and (max-width: 320px) {
     .profile__info {
-           
         justify-content: center;
         width: 282px;
         margin: 0 auto;
-        
     }
-
 }

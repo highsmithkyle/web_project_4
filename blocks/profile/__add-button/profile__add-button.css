@@ -7,17 +7,17 @@
     background-color: black;
     border: solid 1px white;
     margin: 35px 0 35px 165px;
+    transition: .5s ease-in-out;
 }
 
+.profile__add-button:hover {
+    opacity: .6;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 320px) {
     .profile__add-button {
-        
         width: 282px;
         margin: 36px auto 0;
-        
-        
-        
     }
-
 }
