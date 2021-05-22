@@ -14,7 +14,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     margin: auto;
     padding: 30px;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: 999;
