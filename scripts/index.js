@@ -1,6 +1,6 @@
 const editFormEL = document.querySelector(".modal__edit-form");
-const editFormNameInput = document.querySelector(".modal__name-input");
-const editFormAboutMeInput = document.querySelector(".modal__about-me-input");
+const editFormNameInput = document.querySelector(".modal__info_name-input");
+const editFormAboutMeInput = document.querySelector(".modal__info_about-me-input");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const formCloseButton = document.querySelector(".modal__close-button")
 const modalEl = document.querySelector(".modal");
@@ -8,7 +8,6 @@ const modalEl = document.querySelector(".modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 
-const heartEl = document.querySelector(".elements__heart");
 const elementsText = document.querySelector(".elements__text");
 
 
@@ -42,3 +41,13 @@ editFormEL.addEventListener("submit", function (event) {
   profileSubtitle.textContent = editFormAboutMeInput.value;
   closeModal();
 });
+
+
+
+var onresize = function() 
+{
+  var width = window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth;
+  console.log(width);
+}

@@ -10,7 +10,12 @@
 
 .modal__info:last-of-type {
   margin-top: 30px;
+  width: 358px;
+  border-bottom: 1px solid black;
+    
 }
+
+
 
 @media screen and (max-width: 650px) {
   .modal__info {

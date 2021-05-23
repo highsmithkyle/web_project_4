@@ -8,10 +8,11 @@
   line-height: 21.78px;
   border-radius: 2px;
   transition: .5s ease-in-out;
+  border: 0px
 }
 
 .modal__save-button:hover {
-  opacity: .6;
+  opacity: .8;
   cursor: pointer;
 }
 

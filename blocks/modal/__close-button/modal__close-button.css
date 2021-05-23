@@ -3,7 +3,7 @@
   height: 40px;
   border: none;
   background-image: url(../../../images/close-icon.png);
-  background-color: black;
+  background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
@@ -14,7 +14,7 @@
 
 .modal__close-button:hover {
   cursor: pointer;
-  opacity: .6;
+  opacity: .8;
 }
 
 @media screen and (max-width: 320px) {
