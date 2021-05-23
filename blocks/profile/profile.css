@@ -13,10 +13,19 @@
     margin: 40px auto 50px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 900px) {
+    .profile {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 625px) {
     .profile {
         width: 282px;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        margin: 42px auto 0;
     }
 }
+

@@ -12,15 +12,19 @@
     column-gap: 17px;
 }
 
-
-
+@media screen and (max-width: 900px) {
+    .elements {
+        width: 600px;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 36px;
+        margin: 36px auto 0;
+    }
+}
 
 @media screen and (max-width: 320px) {
     .elements {
         width: 320px;
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        row-gap: 20px;
         column-gap: 17px;
     }
 }
