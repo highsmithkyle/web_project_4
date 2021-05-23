@@ -12,6 +12,9 @@
     column-gap: 17px;
 }
 
+
+
+
 @media screen and (max-width: 320px) {
     .elements {
         width: 320px;
