@@ -1,7 +1,7 @@
 .header__logo {
     width: 173px;
     height: 33px;
-    margin: 0 0 41px;
+    
 }
 
 
@@ -10,6 +10,6 @@
     .header__logo {
         width: 126px;
         height: 24px;
-        margin: 0 auto 32px 27px;
+        
     }
 }
