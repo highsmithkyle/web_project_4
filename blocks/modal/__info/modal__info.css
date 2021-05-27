@@ -1,4 +1,5 @@
 .modal__info {
+  display: flex;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   width: 358px;
@@ -6,15 +7,18 @@
   font-size: 14px;
   line-height: 17px;
   margin: 30px auto 0;
+  padding-bottom: 13px;
   justify-content: center;
   align-items: center;
 }
 
 
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 650px) {
   .modal__info {
     width: 238px;
+    padding-bottom: 9px; 
+    
   }
 }
 
