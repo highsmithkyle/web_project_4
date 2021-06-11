@@ -20,7 +20,7 @@ const addFormPlaceInput = document.querySelector(".modal__info_place_new-title-i
 const addFormUrlInput = document.querySelector(".modal__info_place_url-input");
 const elementsText = document.querySelector(".elements__text");
 const elements = document.querySelector(".elements");
-const addFormSubmitButton = document.querySelector(".modal__save-button_type_new-place")
+const addFormSubmitButton = document.querySelector(".modal__save-button_type_new-place");
 
 // image preview 
 
@@ -137,7 +137,7 @@ addFormSubmitButton.addEventListener("submit", (event) => {
   };
   const cardElement = generateCard(addedCard);
   renderCard(cardElement, elements);
-  closeModal(modalAddCard);
+  toggleModal(modalAddCard);
 });
 
 
