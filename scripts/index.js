@@ -136,7 +136,7 @@ addFormSubmitButton.addEventListener("submit", (event) => {
     link: addFormUrlInput.value,
   };
   const cardElement = generateCard(addedCard);
-  renderCard(cardElement, placesElements);
+  renderCard(cardElement, elements);
   closeModal(modalAddCard);
 });
 
