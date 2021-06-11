@@ -1,7 +1,7 @@
 
 // modal toggle
 
-const modalOpen = document.querySelector("modal__open");
+
 
 
 // Profile //
@@ -31,13 +31,13 @@ const elements = document.querySelector(".elements");
 // functions
 
 function openModal() {
-  modalProfile.classList.add("modal_open");
+  modalProfile.classList.add("modal_toggle");
   profileFormNameInput.value = profileTitle.textContent; 
   profileFormAboutMeInput.value = profileSubtitle.textContent;//
 }
 
 function toggleModal(modalElement) {
-  modalElement.classList.toggle("modal_open");
+  modalElement.classList.toggle("modal_toggle");
 }
 
 
