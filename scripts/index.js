@@ -26,7 +26,11 @@ const addFormUrlInput = document.querySelector(".modal__info_place_url-input");
 const elementsText = document.querySelector(".elements__text");
 const elements = document.querySelector(".elements");
 
+// image preview 
 
+const modalImageExpand = document.querySelector(".modal_type_image-expand");
+const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
+const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 
 // functions
 
@@ -60,6 +64,12 @@ function generateCard(card) {
   const cardImageElement = cardTemplateClone.querySelector(".elements__image");
   cardNameElement.textContent = card.name;
   cardImageElement.src = card.link
+  // add event listener
+  cardImageElement.addEventListener("click", (e) => {
+    const {target} = e;
+    toggleModal(modalImageExpand)
+    modalImagePreviewEl.src = card.link
+  });
   return cardTemplateClone;
 
 }
@@ -105,6 +115,10 @@ profileEditButton.addEventListener("click", () => {
   toggleModal(modalProfile);
 });
 
+profileAddButton.addEventListener("click", () => {
+  toggleModal(modalAddCard);
+});
+
 profileFormCloseButton.addEventListener("click", () => {
   toggleModal(modalProfile);
 });
@@ -113,9 +127,13 @@ addFormCloseButton.addEventListener("click", () => {
   toggleModal(modalAddCard);
 });
 
-profileAddButton.addEventListener("click", () => {
-  toggleModal(modalAddCard);
+modalImageExpandCloseButton.addEventListener("click", () => {
+  toggleModal(modalImageExpand);
 });
+
+
+
+
 
 
 

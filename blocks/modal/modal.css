@@ -4,8 +4,11 @@
 @import url(../modal/__info/modal__info.css);
 @import url(../modal/__save-button/modal__save-button.css);
 @import url(../modal/__close-button/modal__close-button.css);
+@import url(../modal/__image-preview/modal__image-preview.css);
 .modal {
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
     box-sizing: border-box;
     width: 99.9%;
     height: 99.9%;
@@ -18,4 +21,5 @@
     z-index: 999;
     justify-content: center;
     align-items: center;
+    transition: visibility 0s linear 0.3s, opacity .3s linear;
 }

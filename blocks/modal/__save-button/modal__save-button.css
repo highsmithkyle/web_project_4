@@ -7,7 +7,7 @@
   font-size: 18px;
   line-height: 21.78px;
   border-radius: 2px;
-  transition: .5s ease-in-out;
+  transition: .5s linear;
   border: 0px;
 }
 

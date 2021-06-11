@@ -1,7 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/modal/modal.css);
-@import url(../blocks/modal/__box/_type/modal__box_type_expand-image.css);
 @import url(../blocks/modal/_toggle/modal_toggle.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/profile/profile.css);
@@ -10,3 +9,5 @@
 @import url(../blocks/main/main.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/modal/_type/modal__image-expand.css);
+@import url(../blocks/modal/__box/_type/modal__box_type_expand-image.css);
