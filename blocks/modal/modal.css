@@ -5,6 +5,7 @@
 @import url(../modal/__save-button/modal__save-button.css);
 @import url(../modal/__close-button/modal__close-button.css);
 @import url(../modal/__image-preview/modal__image-preview.css);
+@import url(../modal/__image-subtitle/modal__image-subtitle.css);
 .modal {
     display: flex;
     visibility: hidden;

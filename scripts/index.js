@@ -1,10 +1,5 @@
 
-// modal toggle
-
-
-
-
-// Profile //
+// Profile 
 
 const modalProfile = document.querySelector(".modal_profile");
 const profileFormEL = document.querySelector(".modal__form_type_edit-form");
@@ -25,18 +20,20 @@ const addFormPlaceInput = document.querySelector(".modal__info_place_new-title-i
 const addFormUrlInput = document.querySelector(".modal__info_place_url-input");
 const elementsText = document.querySelector(".elements__text");
 const elements = document.querySelector(".elements");
+const addFormSubmitButton = document.querySelector("modal__save-button_type_new-place")
 
 // image preview 
 
 const modalImageExpand = document.querySelector(".modal_type_image-expand");
 const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
+const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
 // functions
 
 function openModal() {
   modalProfile.classList.add("modal_toggle");
-  profileFormNameInput.value = profileTitle.textContent; 
+  profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;//
 }
 
@@ -47,11 +44,10 @@ function toggleModal(modalElement) {
 
 function formSubmit(event) {
   event.preventDefault();
-  profileTitle.textContent = profileFormNameInput.value; 
-  profileSubtitle.textContent = profileFormAboutMeInput.value;//
+  profileTitle.textContent = profileFormNameInput.value;
+  profileSubtitle.textContent = profileFormAboutMeInput.value;
   toggleModal(modalProfile);
 }
-
 
 
 function renderCard(cardTempClone, container) {
@@ -64,18 +60,20 @@ function generateCard(card) {
   const cardImageElement = cardTemplateClone.querySelector(".elements__image");
   cardNameElement.textContent = card.name;
   cardImageElement.src = card.link
-  // add event listener
   cardImageElement.addEventListener("click", (e) => {
-    const {target} = e;
+    const { target } = e;
     toggleModal(modalImageExpand)
     modalImagePreviewEl.src = card.link
+    modalImageSubtitle.textContent = card.name
   });
   return cardTemplateClone;
 
 }
 
 
-// Template //
+
+
+// Initialize //
 
 const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");
 
@@ -131,10 +129,16 @@ modalImageExpandCloseButton.addEventListener("click", () => {
   toggleModal(modalImageExpand);
 });
 
-
-
-
-
+addFormSubmitButton.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const addedCard = {
+    name: addFormPlaceInput.value,
+    link: addFormUrlInput.value,
+  };
+  const cardElement = generateCard(addedCard);
+  renderCard(cardElement, placesElements);
+  closeModal(modalAddCard);
+});
 
 
 initialCards.forEach((card) => {
