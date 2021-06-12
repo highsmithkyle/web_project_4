@@ -114,22 +114,7 @@ function generateCard(card) {
 }
 
 
-/* not working
 
-function likeHeart(likedVariable) {
-  const heartElement = likedVariable.querySelector(".elements__heart");
-  heartElement.addEventListener("click", function (evt) {
-    evt.target.classList.toggle(".elements__heart_active")
-  });
-}
-
-function deleteCard(cardToDelete) {
-  const elementsDeleteButton = cardToDelete.querySelector(".elements__delete");
-  elementsDeleteButton.addEventListener("click", function (event) {
-    event.target.elements.remove();
-  });
-}
-*/
 
 
 // Event Listeners // 
