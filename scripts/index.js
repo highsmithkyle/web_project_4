@@ -129,7 +129,7 @@ modalImageExpandCloseButton.addEventListener("click", () => {
   toggleModal(modalImageExpand);
 });
 
-addFormSubmitButton.addEventListener("submit", (event) => {
+addFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
   const addedCard = {
     name: addFormPlaceInput.value,
