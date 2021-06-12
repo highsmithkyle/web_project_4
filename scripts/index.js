@@ -1,3 +1,34 @@
+// Initialize //
+
+const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");
+
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg"
+  }
+];
+
 
 // Profile 
 
@@ -22,14 +53,19 @@ const elementsText = document.querySelector(".elements__text");
 const elements = document.querySelector(".elements");
 const addFormSubmitButton = document.querySelector(".modal__save-button_type_new-place");
 
-// image preview 
+// image preview //
 
 const modalImageExpand = document.querySelector(".modal_type_image-expand");
 const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-// functions
+// elements section
+
+
+const elementsSection = document.querySelector(".elements");
+
+// Functions //
 
 function openModal() {
   modalProfile.classList.add("modal_toggle");
@@ -65,49 +101,42 @@ function generateCard(card) {
     toggleModal(modalImageExpand)
     modalImagePreviewEl.src = card.link
     modalImageSubtitle.textContent = card.name
+    // working
   });
+    
+    const elementsHeart = cardTemplateClone.querySelector("elements__heart")
+    elementsHeart.addEventListener ("click", (evnt) => {
+      evnt.target.classList.toggle(".elements__heart_active");
+    });
+
   return cardTemplateClone;
 
 }
 
 
+/* not working
 
+function likeHeart(likedVariable) {
+  const heartElement = likedVariable.querySelector(".elements__heart");
+  heartElement.addEventListener("click", function (evt) {
+    evt.target.classList.toggle(".elements__heart_active")
+  });
+}
 
-// Initialize //
-
-const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
+function deleteCard(cardToDelete) {
+  const elementsDeleteButton = cardToDelete.querySelector(".elements__delete");
+  elementsDeleteButton.addEventListener("click", function (event) {
+    event.target.elements.remove();
+  });
+}
+*/
 
 
 // Event Listeners // 
 
 profileFormEL.addEventListener("submit", formSubmit)
+
+
 
 profileEditButton.addEventListener("click", () => {
   toggleModal(modalProfile);
@@ -141,13 +170,13 @@ addFormEl.addEventListener("submit", (event) => {
 });
 
 
+
+
 initialCards.forEach((card) => {
   const cardElement = generateCard(card);
   renderCard(cardElement, elements);
 
 });
-
-
 
 
 
