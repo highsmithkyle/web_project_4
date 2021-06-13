@@ -101,26 +101,29 @@ function generateCard(card) {
     toggleModal(modalImageExpand)
     modalImagePreviewEl.src = card.link
     modalImageSubtitle.textContent = card.name
-    // working
-  });
     
-    const elementsHeart = cardTemplateClone.querySelector("elements__heart")
-    elementsHeart.addEventListener ("click", (evnt) => {
-      evnt.target.classList.toggle(".elements__heart_active");
-    });
+  });
+
+  const elementsHeart = cardTemplateClone.querySelector(".elements__heart")
+  elementsHeart.addEventListener("click", (e) => {
+    e.target.classList.toggle("elements__heart_active");
+  });
+
+  elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
+  elementsDeleteButton.addEventListener("click", (elementToDelete) => {
+    const target = elementToDelete.target;
+    const cardToDelete = target.parentNode;
+    cardToDelete.remove();
+  });
 
   return cardTemplateClone;
 
 }
 
 
-
-
-
 // Event Listeners // 
 
 profileFormEL.addEventListener("submit", formSubmit)
-
 
 
 profileEditButton.addEventListener("click", () => {
@@ -153,8 +156,6 @@ addFormEl.addEventListener("submit", (event) => {
   renderCard(cardElement, elements);
   toggleModal(modalAddCard);
 });
-
-
 
 
 initialCards.forEach((card) => {
