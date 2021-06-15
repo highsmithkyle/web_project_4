@@ -67,18 +67,22 @@ const elementsSection = document.querySelector(".elements");
 
 // Functions //
 
-function openModal() {
+function openProfileModal() {
   modalProfile.classList.add("modal_toggle");
   profileFormNameInput.value = profileTitle.textContent;
-  profileFormAboutMeInput.value = profileSubtitle.textContent;//
+  profileFormAboutMeInput.value = profileSubtitle.textContent;
 }
 
-function toggleModal(modalElement) {
-  modalElement.classList.toggle("modal_toggle");
+function closeModal(modalElement) {
+  modalElement.classList.remove("modal_toggle")
+}
+
+function openModal(modalElement) {
+  modalElement.classList.add("modal_toggle")
 }
 
 
-function formSubmit(event) {
+function profileFormSubmitHandler(event) {
   event.preventDefault();
   profileTitle.textContent = profileFormNameInput.value;
   profileSubtitle.textContent = profileFormAboutMeInput.value;
@@ -98,10 +102,10 @@ function generateCard(card) {
   cardImageElement.src = card.link
   cardImageElement.addEventListener("click", (e) => {
     const { target } = e;
-    toggleModal(modalImageExpand)
+    openModal(modalImageExpand)
     modalImagePreviewEl.src = card.link
     modalImageSubtitle.textContent = card.name
-    
+
   });
 
   const elementsHeart = cardTemplateClone.querySelector(".elements__heart")
@@ -110,10 +114,9 @@ function generateCard(card) {
   });
 
   elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
-  elementsDeleteButton.addEventListener("click", (elementToDelete) => {
-    const target = elementToDelete.target;
-    const cardToDelete = target.parentNode;
-    cardToDelete.remove();
+  elementsDeleteButton.addEventListener("click", (e) => {
+    cardTemplateClone.remove();
+    cardTemplatClone = null;
   });
 
   return cardTemplateClone;
@@ -123,27 +126,27 @@ function generateCard(card) {
 
 // Event Listeners // 
 
-profileFormEL.addEventListener("submit", formSubmit)
+profileFormEL.addEventListener("submit", profileFormSubmitHandler)
 
 
 profileEditButton.addEventListener("click", () => {
-  toggleModal(modalProfile);
+  openProfileModal();
 });
 
 profileAddButton.addEventListener("click", () => {
-  toggleModal(modalAddCard);
+  openModal(modalAddCard);
 });
 
 profileFormCloseButton.addEventListener("click", () => {
-  toggleModal(modalProfile);
+  closeModal(modalProfile);
 });
 
 addFormCloseButton.addEventListener("click", () => {
-  toggleModal(modalAddCard);
+  closeModal(modalAddCard);
 });
 
 modalImageExpandCloseButton.addEventListener("click", () => {
-  toggleModal(modalImageExpand);
+  closeModal(modalImageExpand);
 });
 
 addFormEl.addEventListener("submit", (event) => {
@@ -154,7 +157,7 @@ addFormEl.addEventListener("submit", (event) => {
   };
   const cardElement = generateCard(addedCard);
   renderCard(cardElement, elements);
-  toggleModal(modalAddCard);
+  closeModal(modalAddCard);
 });
 
 
