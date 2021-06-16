@@ -68,7 +68,7 @@ const elementsSection = document.querySelector(".elements");
 // Functions //
 
 function openProfileModal() {
-  modalProfile.classList.add("modal_toggle");
+  openModal(modalProfile); 
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
 }
@@ -86,7 +86,7 @@ function profileFormSubmitHandler(event) {
   event.preventDefault();
   profileTitle.textContent = profileFormNameInput.value;
   profileSubtitle.textContent = profileFormAboutMeInput.value;
-  toggleModal(modalProfile);
+  closeModal(modalProfile);
 }
 
 
@@ -116,7 +116,7 @@ function generateCard(card) {
   elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
   elementsDeleteButton.addEventListener("click", (e) => {
     cardTemplateClone.remove();
-    cardTemplatClone = null;
+    cardTemplateClone = null;
   });
 
   return cardTemplateClone;
