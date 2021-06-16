@@ -68,7 +68,7 @@ const elementsSection = document.querySelector(".elements");
 // Functions //
 
 function openProfileModal() {
-  openModal(modalProfile); 
+  openModal(modalProfile);
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
 }
