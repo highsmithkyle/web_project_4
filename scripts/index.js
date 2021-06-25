@@ -167,6 +167,3 @@ initialCards.forEach((card) => {
 
 });
 
-
-
-

@@ -13,14 +13,19 @@
 
     <div class="modal modal_profile">
         <div class="modal__box">
-            <form class="modal__form modal__form_type_edit-form" name="edit-form">
+            <form class="modal__form modal__form_type_edit-form" name="edit-form-profile">
                 <button class="modal__close-button modal__close-button_type_profile" id="modal-close-button"
                     type="button"></button>
                 <h2 class="modal__title">Edit profile</h2>
-                <input class="modal__info modal__info_place_name-input" type="text" name="name"
-                    placeholder="Jacques Cousteau" required>
-                <input class="modal__info modal__info_place_about-me-input" type="text" name="about-me"
-                    placeholder="Explorer" required>
+                
+                <input id="name-input" class="modal__info modal__info_place_name-input" type="text" name="name"
+                    placeholder="Jacques Cousteau" required minlength="2" maxlength="40" />
+                    <p id="name-input-error" class="modal__error"></p>
+                
+                <input id="about-input" class="modal__info modal__info_place_about-me-input" type="text" name="about-me"
+                    placeholder="Explorer" required minlength="2" maxlength="200" />
+                <p id="about-input-error" class="modal__error"></p>
+                
                 <button class="modal__save-button" id="profile-modal-save-button" type="submit">Save</button>
             </form>
         </div>
@@ -28,12 +33,12 @@
 
     <div class="modal modal_add-card">
         <div class="modal__box">
-            <form class="modal__form modal__form_type_new-place" name="edit-form">
+            <form class="modal__form modal__form_type_new-place" name="edit-form-add">
                 <button class="modal__close-button modal__close-button_type_new-place" id="modal-close-button-new-place"
                     type="button"></button>
                 <h2 class="modal__title">New Place</h2>
                 <input class="modal__info modal__info_place_new-title-input" type="text" name="name" placeholder="Title"
-                    required>
+                    required minlength="1" maxlength="30">
                 <input class="modal__info modal__info_place_url-input" type="text" name="about-me"
                     placeholder="Image Link" required>
                 <button class="modal__save-button modal__save-button_type_new-place" id="add-modal-save-button"
@@ -46,8 +51,8 @@
 
     <div class="modal modal_type_image-expand">
         <div class="modal__box modal__box_type_image-expand">
-            <button class="modal__close-button modal__close-button_place_image-expand" id="modal-close-button-image-expand"
-                type="button"></button>
+            <button class="modal__close-button modal__close-button_place_image-expand"
+                id="modal-close-button-image-expand" type="button"></button>
             <img class="modal__image-preview" src="#" alt="#" />
             <div class="modal__image-subtitle"></div>
         </div>
@@ -101,7 +106,7 @@
 
 
     <script src="scripts/index.js" type="text/javascript"></script>
-
+    <script src="scripts/validate.js" type="text/javascript"></script>
 
 
 
