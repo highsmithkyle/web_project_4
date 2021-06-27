@@ -13,6 +13,8 @@ const hideInputError = (input, formElement, { errorClass, inputErrorClass }) => 
 }
 
 
+
+
 const checkInputValidity = (formElement, input, settings) => {
     if (input.validity.valid) {
         hideInputError(input, formElement, settings);
@@ -22,26 +24,34 @@ const checkInputValidity = (formElement, input, settings) => {
 };
 
 
+
+
 const hasValidInputs = (inputList) => {
-let isValid = true;
-inputList.forEach(input => {
-    if(!input.validity.valid) {
-        isValid = false
-    } 
-})
-return isValid
+    let isValid = true;
+    inputList.forEach(input => {
+        if (!input.validity.valid) {
+            isValid = false;
+        }
+    });
+    return isValid
 };
 
-const toggleButton = (inputList, input, settings) => {
-console.log( hasValidInputs(input) )
 
 
-   // if(hasValidInputs(inputList)) {
-    // make button enabled
- // } else {
-    // make button disabled
-  ////    }
-};
+
+
+//const toggleButton = (inputList, saveButton, settings) => {
+   //// if (inputList.contains(saveButton)) {
+//saveButton.disabled = false;
+      //  saveButton.classList.remove(settings.inactiveButtonClass);       <><><> NOT WORKING <><><>
+   // } else {
+  //      toggleButton(inputList, settings, input)
+  //  }
+//};
+
+
+
+
 
 
 const setEventListeners = (formElement, settings) => {
@@ -52,7 +62,7 @@ const setEventListeners = (formElement, settings) => {
             // check valididty
             checkInputValidity(formElement, input, settings);
             // toggle the button
-            toggleButton(formElement, submitButton, settings)
+            toggleButton(inputList, submitButton, settings)
         })
     })
 };
@@ -72,7 +82,7 @@ enableValidation({
     formSelector: ".modal__form",
     inputSelector: ".modal__info",
     submitButtonSelector: ".modal__save-button",
-    inactiveButtonClass: "popup__button_disabled",
+    inactiveButtonClass: "modal__save-button_disabled",
     inputErrorClass: "modal__info_type_error",
-    errorClass: "modal__error",
+    errorClass: "modal__error_active",
 });

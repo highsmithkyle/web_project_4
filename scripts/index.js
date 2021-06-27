@@ -73,13 +73,32 @@ function openProfileModal() {
   profileFormAboutMeInput.value = profileSubtitle.textContent;
 }
 
-function closeModal(modalElement) {
-  modalElement.classList.remove("modal_toggle")
+function openModal(modalElement) {
+  modalElement.classList.add("modal_toggle");
+  document.addEventListener("keydown", (e) => {
+    if (e.keycode === 27) {
+      closeModal(modalElement);
+    }
+  });
 }
 
-function openModal(modalElement) {
-  modalElement.classList.add("modal_toggle")
+
+function closeModal(modalElement) {
+  modalElement.classList.remove("modal_toggle");
+  document.addEventListener("keydown", (e) => {
+    if (e.keycode === 27) {
+      closeModal(modalElement);
+    }
+  });
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "escape") {                           // TEST
+    console.log("working")
+  }
+})
+
+
 
 
 function profileFormSubmitHandler(event) {
@@ -124,7 +143,7 @@ function generateCard(card) {
 }
 
 
-// Event Listeners // 
+// Event Listeners 
 
 profileFormEL.addEventListener("submit", profileFormSubmitHandler)
 

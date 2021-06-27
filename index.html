@@ -17,16 +17,17 @@
                 <button class="modal__close-button modal__close-button_type_profile" id="modal-close-button"
                     type="button"></button>
                 <h2 class="modal__title">Edit profile</h2>
+               
                 
                 <input id="name-input" class="modal__info modal__info_place_name-input" type="text" name="name"
-                    placeholder="Jacques Cousteau" required minlength="2" maxlength="40" />
-                    <p id="name-input-error" class="modal__error"></p>
+                    placeholder="Jacques Cousteau" required minlength="2" maxlength="40">
+                    <span id="name-input-error" class="modal__error"></span>
                 
                 <input id="about-input" class="modal__info modal__info_place_about-me-input" type="text" name="about-me"
-                    placeholder="Explorer" required minlength="2" maxlength="200" />
-                <p id="about-input-error" class="modal__error"></p>
+                    placeholder="Explorer" required minlength="2" maxlength="200">
+                <span id="about-input-error" class="modal__error"></span>
                 
-                <button class="modal__save-button" id="profile-modal-save-button" type="submit">Save</button>
+                <button class="button modal__save-button" id="profile-modal-save-button" type="submit">Save</button>
             </form>
         </div>
     </div>
@@ -41,7 +42,7 @@
                     required minlength="1" maxlength="30">
                 <input class="modal__info modal__info_place_url-input" type="text" name="about-me"
                     placeholder="Image Link" required>
-                <button class="modal__save-button modal__save-button_type_new-place" id="add-modal-save-button"
+                <button class="button modal__save-button modal__save-button_type_new-place" id="add-modal-save-button"
                     type="submit">Create</button>
             </form>
         </div>
