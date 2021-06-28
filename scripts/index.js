@@ -93,9 +93,6 @@ function closeModal(modalElement) {
 }
 
 
-
-
-
 function profileFormSubmitHandler(event) {
   event.preventDefault();
   profileTitle.textContent = profileFormNameInput.value;
@@ -126,15 +123,12 @@ function generateCard(card) {
   elementsHeart.addEventListener("click", (e) => {
     e.target.classList.toggle("elements__heart_active");
   });
-
   elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
   elementsDeleteButton.addEventListener("click", (e) => {
     cardTemplateClone.remove();
     cardTemplateClone = null;
   });
-
   return cardTemplateClone;
-
 }
 
 
@@ -174,10 +168,15 @@ addFormEl.addEventListener("submit", (event) => {
   closeModal(modalAddCard);
 });
 
-
 initialCards.forEach((card) => {
   const cardElement = generateCard(card);
   renderCard(cardElement, elements);
 
+});
+
+
+
+modalProfile.addEventListener("click", () => {
+  closeModal(modalProfile);
 });
 
