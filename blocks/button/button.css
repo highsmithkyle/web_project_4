@@ -1,9 +1,0 @@
-.button {
-    
-    transition: opacity;
-    transition-duration: 0.3s;
-    transition-timing-function: linear;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: solid aqua;
-  }

@@ -24,11 +24,8 @@ const checkInputValidity = (formElement, input, settings) => {
 };
 
 
-
-
 const hasValidInputs = (inputList) => 
    inputList.every((input) => input.validity.valid === true);
-
 
 
 const toggleButton = (inputList, button, settings) => {
@@ -36,6 +33,7 @@ const toggleButton = (inputList, button, settings) => {
     
     if( hasValidInputs(inputList)) {
         button.disabled = false;
+        button.classList.remove(settings.inactiveButtonClass)
  } else {
        button.disabled = true;
        button.classList.add(settings.inactiveButtonClass)
@@ -43,15 +41,12 @@ const toggleButton = (inputList, button, settings) => {
 };
 
 
-
 const setEventListeners = (formElement, settings) => {
     const inputList = [...formElement.querySelectorAll(settings.inputSelector)];
     const submitButton = formElement.querySelector(settings.submitButtonSelector);
     inputList.forEach((input) => {
         input.addEventListener("input", (e) => {
-            // check valididty
             checkInputValidity(formElement, input, settings);
-            // toggle the button
             toggleButton(inputList, submitButton, settings)
         })
     })
