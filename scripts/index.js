@@ -76,7 +76,7 @@ function openProfileModal() {
 function openModal(modalElement) {
   modalElement.classList.add("modal_toggle");
   document.addEventListener("keydown", (e) => {
-    if (e.keycode === 27) {
+    if (e.keyCode === 27) {
       closeModal(modalElement);
     }
   });
@@ -86,17 +86,12 @@ function openModal(modalElement) {
 function closeModal(modalElement) {
   modalElement.classList.remove("modal_toggle");
   document.addEventListener("keydown", (e) => {
-    if (e.keycode === 27) {
+    if (e.keyCode === 27) {
       closeModal(modalElement);
     }
   });
 }
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "escape") {                           // TEST
-    console.log("working")
-  }
-})
 
 
 

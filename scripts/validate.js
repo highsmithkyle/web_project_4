@@ -13,9 +13,9 @@ const hideInputError = (input, formElement, { errorClass, inputErrorClass }) => 
 }
 
 
-
-
 const checkInputValidity = (formElement, input, settings) => {
+    console.log(input.validity.valid)
+    
     if (input.validity.valid) {
         hideInputError(input, formElement, settings);
     } else {
@@ -26,31 +26,21 @@ const checkInputValidity = (formElement, input, settings) => {
 
 
 
-const hasValidInputs = (inputList) => {
-    let isValid = true;
-    inputList.forEach(input => {
-        if (!input.validity.valid) {
-            isValid = false;
-        }
-    });
-    return isValid
+const hasValidInputs = (inputList) => 
+   inputList.every((input) => input.validity.valid === true);
+
+
+
+const toggleButton = (inputList, button, settings) => {
+  console.log('hasValid', hasValidInputs(inputList))
+    
+    if( hasValidInputs(inputList)) {
+        button.disabled = false;
+ } else {
+       button.disabled = true;
+       button.classList.add(settings.inactiveButtonClass)
+   }
 };
-
-
-
-
-
-//const toggleButton = (inputList, saveButton, settings) => {
-   //// if (inputList.contains(saveButton)) {
-//saveButton.disabled = false;
-      //  saveButton.classList.remove(settings.inactiveButtonClass);       <><><> NOT WORKING <><><>
-   // } else {
-  //      toggleButton(inputList, settings, input)
-  //  }
-//};
-
-
-
 
 
 

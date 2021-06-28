@@ -1,6 +1,6 @@
 .button {
-    cursor: pointer;
-    transition-property: opacity;
+    
+    transition: opacity;
     transition-duration: 0.3s;
     transition-timing-function: linear;
     background-position: center;
