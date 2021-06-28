@@ -9,7 +9,7 @@
 @import url(../modal/__image-subtitle/modal__image-subtitle.css);
 @import url(../modal/__error/modal__error.css);
 @import url(../modal/__info/_type/modal__info_type_error.css);
-@import url(../modal/__error/_active/modal__error_active.css);
+
 .modal {
     display: flex;
     visibility: hidden;
