@@ -71,26 +71,62 @@ function openProfileModal() {
   openModal(modalProfile);
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
+  modalProfile.addEventListener("click", closeModalByClick);
+  document.addEventListener("keydown", closeModalByEscapeKey);
 }
 
-function openModal(modalElement) {
-  modalElement.classList.add("modal_toggle");
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 27) {
-      closeModal(modalElement);
-    }
-  });
-}
+//function openModal(modalElement) {
+ // modalElement.classList.add("modal_toggle");
+ // document.addEventListener("keydown", (e) => {
+  //  if (e.keyCode === 27) {
+    //  closeModal(modalElement);
+ //   }
+ // });
+
+    
+// }
+
+const closeModalByClick = (e) => {
+  const modalToggle = document.querySelector(".modal_toggle");
+  if(e.target === modalToggle) {
+      closeModal(modalToggle);
+  };
+};
+
+const closeModalByEscapeKey = (e) => {
+  const modalToggle = document.querySelector(".modal_toggle");
+  if(e.key === "Escape") {
+      closeModal(modalToggle);
+  };
+};
+
+const openModal = (modal) => {
+  modal.classList.add("modal_toggle");
+  modal.addEventListener("click", closeModalByClick);
+  document.addEventListener("keydown", closeModalByEscapeKey);
+};
+
+const closeModal = (modal) => {
+  modal.classList.remove("modal_toggle");
+  modal.removeEventListener("click", closeModalByClick);
+  document.removeEventListener("keydown", closeModalByEscapeKey);
+};
 
 
-function closeModal(modalElement) {
-  modalElement.classList.remove("modal_toggle");
-  document.addEventListener("keydown", (e) => {
-    if (e.keyCode === 27) {
-      closeModal(modalElement);
-    }
-  });
-}
+
+
+
+
+
+
+//function closeModal(modalElement) {
+//modalElement.classList.remove("modal_toggle");
+ // document.addEventListener("keydown", (e) => {
+ //   if (e.keyCode === 27) {
+  //    closeModal(modalElement);
+  //  }
+ // });
+//}
 
 
 function profileFormSubmitHandler(event) {
@@ -132,9 +168,11 @@ function generateCard(card) {
 }
 
 
-// Event Listeners 
+// <><><> Event Listeners <><><> 
 
 profileFormEL.addEventListener("submit", profileFormSubmitHandler)
+
+
 
 
 profileEditButton.addEventListener("click", () => {
@@ -175,8 +213,4 @@ initialCards.forEach((card) => {
 });
 
 
-
-modalProfile.addEventListener("click", () => {
-  closeModal(modalProfile);
-});
 
