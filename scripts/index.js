@@ -60,7 +60,7 @@ const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-previe
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-// elements section //
+// Elements Section //
 
 
 const elementsSection = document.querySelector(".elements");
