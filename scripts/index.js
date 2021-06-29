@@ -30,7 +30,7 @@ const initialCards = [
 ];
 
 
-// Profile 
+// Profile //
 
 const modalProfile = document.querySelector(".modal_profile");
 const profileFormEL = document.querySelector(".modal__form_type_edit-form");
@@ -42,7 +42,7 @@ const profileFormAboutMeInput = document.querySelector(".modal__info_place_about
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 
-// Add Card 
+// Add Card //
 
 const modalAddCard = document.querySelector(".modal_add-card");
 const addFormEl = document.querySelector(".modal__form_type_new-place");

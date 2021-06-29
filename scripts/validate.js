@@ -16,8 +16,7 @@ const hideInputError = (input, formElement, { errorClass, inputErrorClass }) => 
 
 
 const checkInputValidity = (formElement, input, settings) => {
-    console.log(input.validity.valid)
-
+    
     if (input.validity.valid) {
         hideInputError(input, formElement, settings);
     } else {
@@ -31,8 +30,7 @@ const hasValidInputs = (inputList) =>
 
 
 const toggleButton = (inputList, button, settings) => {
-    console.log('hasValid', hasValidInputs(inputList))
-
+   
     if (hasValidInputs(inputList)) {
         button.disabled = false;
         button.classList.remove(settings.inactiveButtonClass)
