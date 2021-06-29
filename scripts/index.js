@@ -60,7 +60,7 @@ const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-previe
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-// elements section
+// elements section //
 
 
 const elementsSection = document.querySelector(".elements");
@@ -71,62 +71,35 @@ function openProfileModal() {
   openModal(modalProfile);
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
-  modalProfile.addEventListener("click", closeModalByClick);
-  document.addEventListener("keydown", closeModalByEscapeKey);
+  modalProfile.addEventListener("click", closeModalClick);
+  document.addEventListener("keydown", closeModalEsc);
 }
 
-//function openModal(modalElement) {
- // modalElement.classList.add("modal_toggle");
- // document.addEventListener("keydown", (e) => {
-  //  if (e.keyCode === 27) {
-    //  closeModal(modalElement);
- //   }
- // });
+const openModal = (modal) => {
+  modal.classList.add("modal_toggle");
+  modal.addEventListener("click", closeModalClick);
+  document.addEventListener("keydown", closeModalEsc);
+};
 
-    
-// }
+const closeModal = (modal) => {
+  modal.classList.remove("modal_toggle");
+  modal.removeEventListener("click", closeModalClick);
+  document.removeEventListener("keydown", closeModalEsc);
+};
 
-const closeModalByClick = (e) => {
+const closeModalClick = (e) => {
   const modalToggle = document.querySelector(".modal_toggle");
   if(e.target === modalToggle) {
       closeModal(modalToggle);
   };
 };
 
-const closeModalByEscapeKey = (e) => {
+const closeModalEsc = (e) => {
   const modalToggle = document.querySelector(".modal_toggle");
-  if(e.key === "Escape") {
+  if(e.keyCode === 27) {
       closeModal(modalToggle);
   };
 };
-
-const openModal = (modal) => {
-  modal.classList.add("modal_toggle");
-  modal.addEventListener("click", closeModalByClick);
-  document.addEventListener("keydown", closeModalByEscapeKey);
-};
-
-const closeModal = (modal) => {
-  modal.classList.remove("modal_toggle");
-  modal.removeEventListener("click", closeModalByClick);
-  document.removeEventListener("keydown", closeModalByEscapeKey);
-};
-
-
-
-
-
-
-
-
-//function closeModal(modalElement) {
-//modalElement.classList.remove("modal_toggle");
- // document.addEventListener("keydown", (e) => {
- //   if (e.keyCode === 27) {
-  //    closeModal(modalElement);
-  //  }
- // });
-//}
 
 
 function profileFormSubmitHandler(event) {
@@ -168,12 +141,9 @@ function generateCard(card) {
 }
 
 
-// <><><> Event Listeners <><><> 
+// Event Listeners 
 
 profileFormEL.addEventListener("submit", profileFormSubmitHandler)
-
-
-
 
 profileEditButton.addEventListener("click", () => {
   openProfileModal();
@@ -209,8 +179,4 @@ addFormEl.addEventListener("submit", (event) => {
 initialCards.forEach((card) => {
   const cardElement = generateCard(card);
   renderCard(cardElement, elements);
-
 });
-
-
-

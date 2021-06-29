@@ -1,21 +1,23 @@
-const showInputError = (input, formElement, { errorClass }) => {
+const showInputError = (input, formElement, { errorClass, inputErrorClass }) => {
     const errorSpan = formElement.querySelector("#" + input.id + "-error")
     errorSpan.textContent = input.validationMessage;
     errorSpan.classList.add(errorClass);
-    
+    input.classList.add(inputErrorClass);
+
 }
 
-const hideInputError = (input, formElement, { errorClass }) => {
+const hideInputError = (input, formElement, { errorClass, inputErrorClass }) => {
     const errorSpan = formElement.querySelector("#" + input.id + "-error")
     errorSpan.textContent = "";
     errorSpan.classList.remove(errorClass);
-    
+    input.classList.remove(inputErrorClass);
+
 }
 
 
 const checkInputValidity = (formElement, input, settings) => {
     console.log(input.validity.valid)
-    
+
     if (input.validity.valid) {
         hideInputError(input, formElement, settings);
     } else {
@@ -24,20 +26,20 @@ const checkInputValidity = (formElement, input, settings) => {
 };
 
 
-const hasValidInputs = (inputList) => 
-   inputList.every((input) => input.validity.valid === true);
+const hasValidInputs = (inputList) =>
+    inputList.every((input) => input.validity.valid === true);
 
 
 const toggleButton = (inputList, button, settings) => {
-  console.log('hasValid', hasValidInputs(inputList))
-    
-    if( hasValidInputs(inputList)) {
+    console.log('hasValid', hasValidInputs(inputList))
+
+    if (hasValidInputs(inputList)) {
         button.disabled = false;
         button.classList.remove(settings.inactiveButtonClass)
- } else {
-       button.disabled = true;
-       button.classList.add(settings.inactiveButtonClass)
-   }
+    } else {
+        button.disabled = true;
+        button.classList.add(settings.inactiveButtonClass)
+    }
 };
 
 
