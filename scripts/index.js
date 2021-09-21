@@ -1,3 +1,8 @@
+
+import FormValidator from "./FormValidator.js";
+
+
+
 // Initialize //
 
 const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");

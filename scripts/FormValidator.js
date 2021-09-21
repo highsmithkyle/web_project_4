@@ -11,18 +11,18 @@ class FormValidator {
     this._form = formElement;
   }
 
-  _showInputError(input, errorSpan) {
+    _showInputError(input, errorSpan) {
     const errorSpan = this._form.querySelector("#" + input.id + "-error")
     errorSpan.textContent = input.validationMessage;
     errorSpan.classList.add(this._errorClass);
     input.classList.add(this._inputErrorClass);
-  }
+   } 
 
   _hideInputError() {
 
   }
 
-  _toggleButton (inputList, button, settings) {
+   _toggleButton (inputList, button, settings) {
    
     if (hasValidInputs(inputList)) {
         this.button.disabled = false;
@@ -31,7 +31,7 @@ class FormValidator {
         this.button.disabled = true;
         this.button.classList.add(settings.inactiveButtonClass)
     }
-};
+ };
 
 _hasValidInputs() {
 
@@ -39,10 +39,10 @@ _hasValidInputs() {
 
   _setEventListeners() {
 
-    this._inputList = [...this._form.querySelectorAll(this._inputSelector)];
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
+   this._inputList = [...this._form.querySelectorAll(this._inputSelector)];
+  this._submitButton = this._form.querySelector(this._submitButtonSelector);
     inputList.forEach((input) => {
-        input.addEventListener("input", (e) => {
+       input.addEventListener("input", (e) => {
             checkInputValidity(this._form, input, settings);
             toggleButton(inputList, submitButton, settings)
         })
@@ -50,25 +50,25 @@ _hasValidInputs() {
 
   }
   
-  enableValidation() {
+ enableValidation() {
 
-    this._form.addEventListener("submit", (e) => {
+   this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
     setEventListeners(formElement, settings);
 
-  }
+ }
 
 }
 
-const settings = {
+ const settings = {
     formSelector: ".modal__form",
     inputSelector: ".modal__info",
     submitButtonSelector: ".modal__save-button",
     inactiveButtonClass: "modal__save-button_disabled",
     inputErrorClass: "modal__info_type_error",
     errorClass: "modal__error_active",
-}
+ }
 
 
 
@@ -78,3 +78,5 @@ const settings = {
 const profileFormValidator = new FormValidator(settings, profileFormEL);
 const addFormValidator = new FormValidator(settings, addFormEl);
 profileFormValidator.enableValidation();
+
+export default FormValidator;
