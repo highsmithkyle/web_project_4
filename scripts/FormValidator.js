@@ -25,12 +25,12 @@ class FormValidator {
     input.classList.add(this._inputErrorClass);
   }
 
-  _checkInputValidity = (formElement, input, settings) => {
+  _checkInputValidity = (input, settings) => {
     
     if (input.validity.valid) {
-        return hideInputError(input, formElement, settings);
+        return hideInputError(input, this._form, settings);
     } else {
-        return showInputError(input, formElement, settings);
+        return showInputError(input, this._form, settings);
     }
 };
 
@@ -62,6 +62,18 @@ _hasValidInputs = (inputList) =>
 
   }
 
+  _enableValidation = (settings) => {
+
+    const formElements = [...document.querySelectorAll(settings.formSelector)];
+    formElements.forEach((formElement) => {
+      this._form.addEventListener('submit', (e) =>
+      e.preventDefault());
+
+      setEventListeners(this._form, settings);
+
+    })
+  }
+  
   enableValidation() {
 
     this._form.addEventListener("submit", (e) => {
@@ -84,12 +96,9 @@ const settings = {
   errorClass: "modal__error_active",
 }
 
-// const profileFormValidator = new FormValidator(settings, profileFormEL);
-// profileFormValidator.enableValidation();
 
-// const addFormValidator = new FormValidator(settings, addFormEl);
-// addFormValidator.enableValidation();
 
+console.log("test")
 
 export default FormValidator;
 

@@ -1,6 +1,7 @@
 
-import initialCards from "./cards.js";
+import initialCards from "./InitialCards.js";
 import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 
 
@@ -94,9 +95,10 @@ function profileFormSubmitHandler(event) {
 }
 
 
-function renderCard(cardTempClone, container) {
-  container.append(cardTempClone);
-}
+// function renderCard(cardTempClone, container) {
+//  const card = new Card(data,)
+//  container.append(cardTempClone);
+//  }
 
 function generateCard(card) {
   const cardTemplateClone = cardTemplate.cloneNode(true);
@@ -123,6 +125,29 @@ function generateCard(card) {
   });
   return cardTemplateClone;
 }
+
+
+
+// Validation
+
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__info",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__info_type_error",
+  errorClass: "modal__error_active",
+};
+
+
+
+const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
+profileFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(validationSettings, addFormEl);
+ addFormValidator.enableValidation();
+ 
+
 
 
 // Event Listeners 
