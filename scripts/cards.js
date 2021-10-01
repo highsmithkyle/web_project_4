@@ -25,7 +25,6 @@ const initialCards = [
     }
   ];
 
-console.log("help")
 
   export default initialCards
 

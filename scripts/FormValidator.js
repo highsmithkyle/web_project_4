@@ -37,19 +37,16 @@ class FormValidator {
 _hasValidInputs = (inputList) =>
    inputList.every((input) => input.validity.valid === true);
 
-  _toggleButton(inputList, button, settings) {
+  _toggleButton(inputList) {
 
     if (this._hasValidInputs(inputList)) {
-      this.button.disabled = false;
-      this.button.classList.remove(settings.inactiveButtonClass)
+      this._button.disabled = false;
+      this._button.classList.remove(this.inactiveButtonClass)
     } else {
       this.button.disabled = true;
-      this.button.classList.add(settings.inactiveButtonClass)
+      this.button.classList.add(this.inactiveButtonClass)
     }
   };
-
-
-  
 
   _setEventListeners() {
 
@@ -87,11 +84,11 @@ const settings = {
   errorClass: "modal__error_active",
 }
 
-const profileFormValidator = new FormValidator(settings, profileFormEL);
-profileFormValidator.enableValidation();
+// const profileFormValidator = new FormValidator(settings, profileFormEL);
+// profileFormValidator.enableValidation();
 
-const addFormValidator = new FormValidator(settings, addFormEl);
-addFormValidator.enableValidation();
+// const addFormValidator = new FormValidator(settings, addFormEl);
+// addFormValidator.enableValidation();
 
 
 export default FormValidator;
