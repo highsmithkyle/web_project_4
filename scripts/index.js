@@ -7,6 +7,7 @@ import Card from "./Card.js";
 
 
 
+
 // Initialize //
 
 const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");
@@ -16,6 +17,9 @@ const cardTemplate = document.querySelector("#elements-template").content.queryS
 
 
 // Profile //
+
+
+
 
 const modalProfile = document.querySelector(".modal_profile");
 const profileFormEL = document.querySelector(".modal__form_type_edit-form");
@@ -45,8 +49,9 @@ const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-previe
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-// Elements Section //
+// Elements //
 
+const cardSelector = '#elements-template';
 
 const elementsSection = document.querySelector(".elements");
 
@@ -95,10 +100,10 @@ function profileFormSubmitHandler(event) {
 }
 
 
-// function renderCard(cardTempClone, container) {
-//  const card = new Card(data,)
-//  container.append(cardTempClone);
-//  }
+function renderCard(cardTempClone, container) {
+  const card = new Card(cardTempClone, cardSelector)
+  container.append(cardTempClone);
+}
 
 function generateCard(card) {
   const cardTemplateClone = cardTemplate.cloneNode(true);
@@ -126,29 +131,22 @@ function generateCard(card) {
   return cardTemplateClone;
 }
 
-
-
-// Validation
+// validation
 
 const validationSettings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__info",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__info_type_error",
-  errorClass: "modal__error_active",
-};
 
-
+    inputSelector: ".modal__info",
+    submitButtonSelector: ".modal__save-button",
+    inactiveButtonClass: "modal__save-button_disabled",
+    inputErrorClass: "modal__info_type_error",
+    errorClass: "modal__error_active",
+}
 
 const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
-profileFormValidator.enableValidation();
-
 const addFormValidator = new FormValidator(validationSettings, addFormEl);
- addFormValidator.enableValidation();
- 
 
-
+// profileFormValidator._enableValidation();
+// addFormValidator._enableValidation();
 
 // Event Listeners 
 
@@ -189,4 +187,3 @@ initialCards.forEach((card) => {
   const cardElement = generateCard(card);
   renderCard(cardElement, elements);
 });
-

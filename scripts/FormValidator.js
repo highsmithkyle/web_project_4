@@ -74,14 +74,6 @@ _hasValidInputs = (inputList) =>
     })
   }
   
-  enableValidation() {
-
-    this._form.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
-    setEventListeners(formElement, settings);
-
-  }
 
 }
 
