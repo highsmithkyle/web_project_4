@@ -102,7 +102,7 @@ function profileFormSubmitHandler(event) {
 
 function renderCard(cardTempClone, container) {
   const card = new Card(cardTempClone, cardSelector)
-  container.append(cardTempClone);
+  container.append(cardTempClone. getView());
 }
 
 function generateCard(card) {
@@ -130,6 +130,7 @@ function generateCard(card) {
   });
   return cardTemplateClone;
 }
+
 
 // validation
 
