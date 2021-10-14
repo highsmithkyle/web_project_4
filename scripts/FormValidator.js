@@ -62,7 +62,7 @@ _hasValidInputs = (inputList) =>
 
   }
 
-  _enableValidation = (settings) => {
+  enableValidation = (settings) => {
 
     const formElements = [...document.querySelectorAll(settings.formSelector)];
     formElements.forEach((formElement) => {
@@ -88,7 +88,8 @@ const settings = {
   errorClass: "modal__error_active",
 }
 
-
+const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
+const addFormValidator = new FormValidator(validationSettings, addFormEl);
 
 console.log("test")
 

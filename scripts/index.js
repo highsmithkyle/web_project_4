@@ -102,7 +102,7 @@ function profileFormSubmitHandler(event) {
 
 function renderCard(cardTempClone, container) {
   const card = new Card(cardTempClone, cardSelector)
- // container.append(cardTempClone. getView());
+   container.append(cardTempClone. getView());
 }
 
 function generateCard(card) {
@@ -143,8 +143,7 @@ const validationSettings = {
     errorClass: "modal__error_active",
 }
 
- // const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
-  // const addFormValidator = new FormValidator(validationSettings, addFormEl);
+ 
 
  // profileFormValidator._enableValidation();
  // addFormValidator._enableValidation();

@@ -1,7 +1,3 @@
-const modalImageExpand = document.querySelector(".modal_type_image-expand");
-const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
-const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
-const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
 
 
@@ -60,7 +56,7 @@ _getTemplate() {
 }
 
 
-getView() {
+        getView() {
     
     
     this._element = this._getTemplate();
