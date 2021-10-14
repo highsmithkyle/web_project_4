@@ -134,15 +134,8 @@ function generateCard(card) {
 
 // validation
 
-const validationSettings = {
-
-    inputSelector: ".modal__info",
-    submitButtonSelector: ".modal__save-button",
-    inactiveButtonClass: "modal__save-button_disabled",
-    inputErrorClass: "modal__info_type_error",
-    errorClass: "modal__error_active",
-}
-
+// const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
+// const addFormValidator = new FormValidator(validationSettings, addFormEl);
  
 
  // profileFormValidator._enableValidation();

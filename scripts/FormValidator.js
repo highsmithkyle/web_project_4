@@ -11,20 +11,25 @@ class FormValidator {
     this._form = formElement;
   }
 
-  _showInputError(input, errorSpan) {
-   errorSpan = this._form.querySelector("#" + input.id + "-error")
-    errorSpan.textContent = input.validationMessage;
-    errorSpan.classList.add(this._errorClass);
-    input.classList.add(this._inputErrorClass);
+  _showInputError(input) {
+   const errorSpan = this._formElement.querySelector("#" + input.id + "-error")
+   input.classList.add(this._inputErrorClass); 
+   errorSpan.textContent = input.validationMessage;
+  errorSpan.classList.add(this._errorClass);
+    
   }
 
-  _hideInputError(input, errorSpan) {
-    errorSpan = this._form.querySelector("#" + input.id + "-error")
-    errorSpan.textContent = "";
-    errorSpan.classList.remove(this._errorClass);
-    input.classList.add(this._inputErrorClass);
+  _hideInputError(input) {
+    const errorSpan = this._formElement.querySelector("#" + input.id + "-error")
+    input.classList.remove(this._inputErrorClass); 
+     errorSpan.classList.remove(this._errorClass);
+     errorSpan.textContent = "";
+    
   }
 
+
+
+  
   _checkInputValidity = (input, settings) => {
     
     if (input.validity.valid) {
@@ -34,9 +39,11 @@ class FormValidator {
     }
 };
 
-_hasValidInputs = (inputList) =>
-   inputList.every((input) => input.validity.valid === true);
+_hasValidInputs = (inputList) => {
+  return inputList.every((input) => input.validity.valid);
 
+}
+   
   _toggleButton(inputList) {
 
     if (this._hasValidInputs(inputList)) {
@@ -62,25 +69,23 @@ _hasValidInputs = (inputList) =>
 
   }
 
-  enableValidation = (settings) => {
+  enableValidation() {
+      this._formElement.addEventListener('submit', (e) => {
 
-    const formElements = [...document.querySelectorAll(settings.formSelector)];
-    formElements.forEach((formElement) => {
-      this._form.addEventListener('submit', (e) =>
-      e.preventDefault());
+        e.preventDefault();
 
-      setEventListeners(this._form, settings);
+      });
 
-    })
+      setEventListeners();
+
   }
   
-
 }
 
 
 
-const settings = {
-  formSelector: ".modal__form",
+const validationSettings = {
+
   inputSelector: ".modal__info",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
@@ -88,8 +93,8 @@ const settings = {
   errorClass: "modal__error_active",
 }
 
-const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
-const addFormValidator = new FormValidator(validationSettings, addFormEl);
+
+
 
 console.log("test")
 
