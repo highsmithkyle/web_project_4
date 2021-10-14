@@ -28,14 +28,13 @@ class FormValidator {
   }
 
 
-
   
   _checkInputValidity = (input, settings) => {
     
     if (input.validity.valid) {
         return hideInputError(input, this._form, settings);
     } else {
-        return showInputError(input, this._form, settings);
+       return showInputError(input, this._form, settings);
     }
 };
 
