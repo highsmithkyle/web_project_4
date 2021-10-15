@@ -65,10 +65,10 @@ function openProfileModal() {
   document.addEventListener("keydown", closeModalEsc);
 }
 
-const openModal = (modal) => {
+ const openModal = (modal) => {
   modal.classList.add("modal_toggle");
-  modal.addEventListener("click", closeModalClick);
-  document.addEventListener("keydown", closeModalEsc);
+ modal.addEventListener("click", closeModalClick);
+ document.addEventListener("keydown", closeModalEsc);
 };
 
 const closeModal = (modal) => {
@@ -102,7 +102,7 @@ function profileFormSubmitHandler(event) {
 
 function renderCard(cardTempClone, container) {
   const card = new Card(cardTempClone, cardSelector)
-   container.append(cardTempClone. getView());
+   container.append(card.getView());
 }
 
 function generateCard(card) {
@@ -133,6 +133,17 @@ function generateCard(card) {
 
 
 // validation
+
+const validationSettings = {
+
+  inputSelector: ".modal__info",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__info_type_error",
+  errorClass: "modal__error_active",
+}
+
+
 
 // const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
 // const addFormValidator = new FormValidator(validationSettings, addFormEl);
