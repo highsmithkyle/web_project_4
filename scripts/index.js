@@ -180,13 +180,13 @@ addFormEl.addEventListener("submit", (event) => {
     link: addFormUrlInput.value,
   };
   const cardElement = generateCard(addedCard);
-  renderCard(data, elements);
+  renderCard(cardElement, elements);
   closeModal(modalAddCard);
 });
 
 initialCards.forEach((card) => {
   const cardElement = generateCard(card);
-  renderCard(data, elements);
+  renderCard(cardElement, elements);
 });
 
 
