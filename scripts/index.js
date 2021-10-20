@@ -49,11 +49,12 @@ const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-previe
 const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-// Elements //
+// elements //
 
 const cardSelector = '#elements-template';
 
 const elementsSection = document.querySelector(".elements");
+const elementsContainer = document.querySelector(".elements__container")
 
 // Functions //
 
@@ -99,9 +100,10 @@ function profileFormSubmitHandler(event) {
   closeModal(modalProfile);
 }
 
+// cards
 
-function renderCard(cardTempClone, container) {
-  const card = new Card(cardTempClone, cardSelector)
+const renderCard = (data, container) => {
+  const card = new Card(data, cardSelector)
    container.append(card.getView());
 }
 
@@ -145,12 +147,7 @@ const validationSettings = {
 
 
 
-// const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
-// const addFormValidator = new FormValidator(validationSettings, addFormEl);
- 
 
- // profileFormValidator._enableValidation();
- // addFormValidator._enableValidation();
 
 // Event Listeners 
 
@@ -183,11 +180,20 @@ addFormEl.addEventListener("submit", (event) => {
     link: addFormUrlInput.value,
   };
   const cardElement = generateCard(addedCard);
-  renderCard(cardElement, elements);
+  renderCard(data, elements);
   closeModal(modalAddCard);
 });
 
 initialCards.forEach((card) => {
   const cardElement = generateCard(card);
-  renderCard(cardElement, elements);
+  renderCard(data, elements);
 });
+
+
+
+// const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
+// const addFormValidator = new FormValidator(validationSettings, addFormEl);
+ 
+
+ // profileFormValidator._enableValidation();
+ // addFormValidator._enableValidation();

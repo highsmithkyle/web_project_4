@@ -5,7 +5,7 @@ class Card {
     constructor(card, cardSelector) {
 
         this._name = card.name;
-        this.link = card.link;
+        this._link = card.link;
 
         this._cardSelector = cardSelector;
 
