@@ -79,19 +79,12 @@
             <button class="profile__add-button" id="profile-add-button" type="button"></button>
 
         </section>
+        <ul class="elements">
 
-        <section class="elements">
-            <template id="elements-template">
-                <div class="elements__container">
-                    <img class="elements__image" src="/images/kirill-pershin-1088404-unsplash-1.png" />
-                    <div class="elements__delete"></div>
-                    <div class="elements__text-container">
-                        <h2 class="elements__text"></h2>
-                        <button class="elements__heart" type="button"></button>
-                    </div>
-                </div>
-            </template>
-        </section>
+        </ul>
+       
+            
+       
 
 
     </main>
@@ -100,7 +93,17 @@
         <p class="footer__text">© Kyle Highsmith 2021 Around The U.S.</p>
     </footer>
 
-
+    <template id="elements-template">
+        <li class="elements__container">
+            <img class="elements__image" src="/images/kirill-pershin-1088404-unsplash-1.png" />
+            <div class="elements__delete"></div>
+            <div class="elements__text-container">
+                <h2 class="elements__text"></h2>
+                <button class="elements__heart" type="button"></button>
+            </div>
+        </li>
+    </template>
+    
   <script src="scripts/index.js" type="module"></script>
    <!-- <script src="scripts/validate.js" type="text/javascript"></script> -->
 

@@ -38,9 +38,7 @@ const addFormEl = document.querySelector(".modal__form_type_new-place");
 const addFormCloseButton = document.querySelector(".modal__close-button_type_new-place")
 const addFormPlaceInput = document.querySelector(".modal__info_place_new-title-input");
 const addFormUrlInput = document.querySelector(".modal__info_place_url-input");
-const elementsText = document.querySelector(".elements__text");
-const elements = document.querySelector(".elements");
-const addFormSubmitButton = document.querySelector(".modal__save-button_type_new-place");
+
 
 // image preview //
 
@@ -53,8 +51,7 @@ const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitl
 
 const cardSelector = '#elements-template';
 
-const elementsSection = document.querySelector(".elements");
-const elementsContainer = document.querySelector(".elements__container")
+const elements = document.querySelector(".elements");
 
 // Functions //
 
@@ -107,43 +104,32 @@ const renderCard = (data, container) => {
    container.append(card.getView());
 }
 
-function generateCard(card) {
-  const cardTemplateClone = cardTemplate.cloneNode(true);
-  const cardNameElement = cardTemplateClone.querySelector(".elements__text");
-  const cardImageElement = cardTemplateClone.querySelector(".elements__image");
-  cardNameElement.textContent = card.name;
-  cardImageElement.src = card.link
-  cardImageElement.addEventListener("click", (e) => {
-    const { target } = e;
-    openModal(modalImageExpand)
-    modalImagePreviewEl.src = card.link
-    modalImageSubtitle.textContent = card.name
+// function generateCard(card) {
+//  const cardTemplateClone = cardTemplate.cloneNode(true);
+//  const cardNameElement = cardTemplateClone.querySelector(".elements__text");
+//  const cardImageElement = cardTemplateClone.querySelector(".elements__image");
+//  cardNameElement.textContent = card.name;
+//  cardImageElement.src = card.link
+//  cardImageElement.addEventListener("click", (e) => {
+//    const { target } = e;
+//    openModal(modalImageExpand)
+//    modalImagePreviewEl.src = card.link
+//    modalImageSubtitle.textContent = card.name
 
-  });
+//  });
 
-  const elementsHeart = cardTemplateClone.querySelector(".elements__heart")
-  elementsHeart.addEventListener("click", (e) => {
-    e.target.classList.toggle("elements__heart_active");
-  });
-  const elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
-  elementsDeleteButton.addEventListener("click", (e) => {
-    cardTemplateClone.remove();
-    cardTemplateClone = null;
-  });
-  return cardTemplateClone;
-}
+ // const elementsHeart = cardTemplateClone.querySelector(".elements__heart")
+ // elementsHeart.addEventListener("click", (e) => {
+  //  e.target.classList.toggle("elements__heart_active");
+ // });
+ // const elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
+ // elementsDeleteButton.addEventListener("click", (e) => {
+ //   cardTemplateClone.remove();
+ //   cardTemplateClone = null;
+ // });
+ // return cardTemplateClone;
+// }
 
-
-// validation
-
-const validationSettings = {
-
-  inputSelector: ".modal__info",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__info_type_error",
-  errorClass: "modal__error_active",
-}
 
 
 
@@ -175,25 +161,36 @@ modalImageExpandCloseButton.addEventListener("click", () => {
 
 addFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
-  const addedCard = {
+  const data = {
     name: addFormPlaceInput.value,
     link: addFormUrlInput.value,
   };
-  const cardElement = generateCard(addedCard);
-  renderCard(cardElement, elements);
+  
+  renderCard(data, elements);
   closeModal(modalAddCard);
 });
 
 initialCards.forEach((card) => {
-  const cardElement = generateCard(card);
-  renderCard(cardElement, elements);
+ 
+  renderCard(card, elements);
 });
 
 
 
-// const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
-// const addFormValidator = new FormValidator(validationSettings, addFormEl);
+// validation
+
+const validationSettings = {
+
+  inputSelector: ".modal__info",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__info_type_error",
+  errorClass: "modal__error_active",
+}
+
+const profileFormValidator = new FormValidator(validationSettings, profileFormEL);
+const addFormValidator = new FormValidator(validationSettings, addFormEl);
  
 
- // profileFormValidator._enableValidation();
- // addFormValidator._enableValidation();
+profileFormValidator._enableValidation();
+addFormValidator._enableValidation();

@@ -1,3 +1,6 @@
+const profileFormEL = document.querySelector(".modal__form_type_edit-form");
+const addFormEl = document.querySelector(".modal__form_type_new-place");
+
 class FormValidator {
 
   constructor(settings, formElement) {
@@ -8,19 +11,19 @@ class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
 
-    this._form = formElement;
+    this._formEl = formElement;
   }
 
-  _showInputError(input) {
-    const errorSpan = this._formElement.querySelector("#" + input.id + "-error")
+  _showInputError = (formEl, input) => {
+    const errorSpan = formEl.querySelector("#" + input.id + "-error")
     input.classList.add(this._inputErrorClass);
     errorSpan.textContent = input.validationMessage;
     errorSpan.classList.add(this._errorClass);
 
   }
 
-  _hideInputError(input) {
-    const errorSpan = this._formElement.querySelector("#" + input.id + "-error")
+  _hideInputError = (formEl, input) => {
+    const errorSpan = formEl.querySelector("#" + input.id + "-error")
     input.classList.remove(this._inputErrorClass);
     errorSpan.classList.remove(this._errorClass);
     errorSpan.textContent = "";
@@ -29,12 +32,12 @@ class FormValidator {
 
 
 
-  _checkInputValidity = (input, settings) => {
+  _checkInputValidity = (formEl, input) => {
 
     if (input.validity.valid) {
-      return hideInputError(input, this._form, settings);
+      return _hideInputError(formEl, input);
     } else {
-      return showInputError(input, this._form, settings);
+      return _showInputError(formEl, input);
     }
   };
 
@@ -67,27 +70,18 @@ class FormValidator {
     });
 
   }
+  
 
   enableValidation() {
     this._formElement.addEventListener('submit', (e) => {
-
       e.preventDefault();
-
     });
-
-    setEventListeners();
+    _setEventListeners();
 
   }
 
 }
 
-
-
-
-
-
-
-console.log("test")
 
 export default FormValidator;
 
