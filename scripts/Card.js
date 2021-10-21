@@ -7,6 +7,34 @@ const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitl
 
 
 
+  
+   const openModal = (modal) => {
+    modal.classList.add("modal_toggle");
+   modal.addEventListener("click", closeModalClick);
+   document.addEventListener("keydown", closeModalEsc);
+  };
+  
+  const closeModal = (modal) => {
+    modal.classList.remove("modal_toggle");
+    modal.removeEventListener("click", closeModalClick);
+    document.removeEventListener("keydown", closeModalEsc);
+  };
+  
+  const closeModalClick = (e) => {
+    const modalToggle = document.querySelector(".modal_toggle");
+    if(e.target === modalToggle) {
+        closeModal(modalToggle);
+    };
+  };
+  
+  const closeModalEsc = (e) => {
+    const modalToggle = document.querySelector(".modal_toggle");
+    if(e.keyCode === 27) {
+        closeModal(modalToggle);
+    };
+  };
+  
+  
 
 class Card {
 
@@ -50,7 +78,7 @@ class Card {
     _setEventListeners() {
         this._element
             .querySelector(".elements__image")
-            .addEventListener("click", () => this._handlePreviewImg());
+            .addEventListener("click", () => this._handleImagePreview());
 
         this._element
             .querySelector(".elements__delete")
@@ -64,7 +92,7 @@ class Card {
     _handleLikeIcon() {
         this._element
             .querySelector(".elements__heart")
-            .classList.toggle(".elements__heart_active");
+            .classList.toggle("elements__heart_active");
 
     }
 
