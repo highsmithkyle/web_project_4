@@ -194,3 +194,4 @@ const addFormValidator = new FormValidator(validationSettings, addFormEl);
 
 profileFormValidator._enableValidation();
 addFormValidator._enableValidation();
+
