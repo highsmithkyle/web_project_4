@@ -36,8 +36,8 @@ class FormValidator {
     }
   };
 
-  _hasValidInputs = () => {
-    return this.inputList.every((input) => input.validity.valid);
+  _hasValidInputs = (inputList) => {
+    return inputList.every((input) => input.validity.valid);
 
   }
 
