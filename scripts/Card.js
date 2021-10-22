@@ -1,13 +1,7 @@
-
-
 const modalImageExpand = document.querySelector(".modal_type_image-expand");
 const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
-const modalImageExpandCloseButton = modalImageExpand.querySelector(".modal__close-button_place_image-expand");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-
-
-  
    const openModal = (modal) => {
     modal.classList.add("modal_toggle");
    modal.addEventListener("click", closeModalClick);
@@ -57,9 +51,7 @@ class Card {
         return cardElement
     }
 
-
     getView() {
-
 
         this._element = this._getTemplate();
         this._setEventListeners();
@@ -96,7 +88,6 @@ class Card {
 
     }
 
-    
     _handleDeleteIcon() {
         this._element.remove();
         
@@ -104,11 +95,10 @@ class Card {
 
     _handleImagePreview() {
         openModal(modalImageExpand)
-        modalImageExpand.src = this._link;
-        modalImageExpand.alt = this._name;
-        modalImageExpand.textContent = this._name
+        modalImagePreviewEl.src = this._link;
+        modalImagePreviewEl.alt = this._name;
+        modalImageSubtitle.textContent = this._name
     }
-
 
 }
 

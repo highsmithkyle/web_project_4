@@ -57,7 +57,7 @@
     const formElements = [...document.querySelectorAll(settings.formSelector)];
     formElements.forEach(formElement => {
         formElement.addEventListener("submit", (e) => e.preventDefault());
-        setEventListeners(formElement, settings);
+        this._setEventListeners(formElement, settings);
 
     });
   };
@@ -71,3 +71,33 @@ enableValidation({
   inputErrorClass: "modal__info_type_error",
   errorClass: "modal__error_active",
 });
+
+
+
+// non oop code
+
+// function generateCard(card) {
+//  const cardTemplateClone = cardTemplate.cloneNode(true);
+//  const cardNameElement = cardTemplateClone.querySelector(".elements__text");
+//  const cardImageElement = cardTemplateClone.querySelector(".elements__image");
+//  cardNameElement.textContent = card.name;
+//  cardImageElement.src = card.link
+//  cardImageElement.addEventListener("click", (e) => {
+//    const { target } = e;
+//    openModal(modalImageExpand)
+//    modalImagePreviewEl.src = card.link
+//    modalImageSubtitle.textContent = card.name
+
+//  });
+
+// const elementsHeart = cardTemplateClone.querySelector(".elements__heart")
+// elementsHeart.addEventListener("click", (e) => {
+//  e.target.classList.toggle("elements__heart_active");
+// });
+// const elementsDeleteButton = cardTemplateClone.querySelector(".elements__delete")
+// elementsDeleteButton.addEventListener("click", (e) => {
+//   cardTemplateClone.remove();
+//   cardTemplateClone = null;
+// });
+// return cardTemplateClone;
+// }

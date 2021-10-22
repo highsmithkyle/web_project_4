@@ -1,6 +1,3 @@
-const profileFormEL = document.querySelector(".modal__form_type_edit-form");
-const addFormEl = document.querySelector(".modal__form_type_new-place");
-
 class FormValidator {
 
   constructor(settings, formElement) {
@@ -14,7 +11,7 @@ class FormValidator {
     this._formEl = formElement;
   }
 
-  _showInputError = (formEl, input) => {
+  _showInputError = (input) => {
     const errorSpan = formEl.querySelector("#" + input.id + "-error")
     input.classList.add(this._inputErrorClass);
     errorSpan.textContent = input.validationMessage;
@@ -22,7 +19,7 @@ class FormValidator {
 
   }
 
-  _hideInputError = (formEl, input) => {
+  _hideInputError = (input) => {
     const errorSpan = formEl.querySelector("#" + input.id + "-error")
     input.classList.remove(this._inputErrorClass);
     errorSpan.classList.remove(this._errorClass);
@@ -30,19 +27,17 @@ class FormValidator {
 
   }
 
-
-
-  _checkInputValidity = (formEl, input) => {
+  _checkInputValidity = (input) => {
 
     if (input.validity.valid) {
-      return _hideInputError(formEl, input);
+       this._hideInputError(input);
     } else {
-      return _showInputError(formEl, input);
+      this._showInputError(input);
     }
   };
 
-  _hasValidInputs = (inputList) => {
-    return inputList.every((input) => input.validity.valid);
+  _hasValidInputs = () => {
+    return this.inputList.every((input) => input.validity.valid);
 
   }
 
@@ -59,7 +54,6 @@ class FormValidator {
 
   _setEventListeners() {
 
-
     const inputList = [...this._formEl.querySelectorAll(this._inputSelector)];
     const submitButton = this._formEl.querySelector(this._submitButtonSelector);
     inputList.forEach((input) => {
@@ -68,18 +62,15 @@ class FormValidator {
         this._toggleButton(inputList, submitButton)
       })
     });
-
   }
-  
 
-  _enableValidation() {
+  enableValidation() {
     this._formEl.addEventListener('submit', (e) => {
       e.preventDefault();
     });
-    _setEventListeners();
+    this._setEventListeners();
 
   }
-
 }
 
 
