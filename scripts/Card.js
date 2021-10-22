@@ -27,8 +27,7 @@ const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitl
         closeModal(modalToggle);
     };
   };
-  
-  
+
 
 class Card {
 
@@ -38,12 +37,10 @@ class Card {
         this._link = data.link;
 
         this._cardSelector = cardSelector;
-
     }
 
     _getTemplate() {
-
-        const cardElement = document
+         const cardElement = document
             .querySelector(this._cardSelector)
             .content.querySelector(".elements__container")
             .cloneNode(true);
@@ -65,7 +62,6 @@ class Card {
         return this._element;
 
     }
-
 
     _setEventListeners() {
         this._element
@@ -101,7 +97,6 @@ class Card {
     }
 
 }
-
 
 export default Card;
 
