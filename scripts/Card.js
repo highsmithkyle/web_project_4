@@ -2,31 +2,31 @@ const modalImageExpand = document.querySelector(".modal_type_image-expand");
 const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
 const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
 
-   const openModal = (modal) => {
+const openModal = (modal) => {
     modal.classList.add("modal_toggle");
-   modal.addEventListener("click", closeModalClick);
-   document.addEventListener("keydown", closeModalEsc);
-  };
-  
-  const closeModal = (modal) => {
+    modal.addEventListener("click", closeModalClick);
+    document.addEventListener("keydown", closeModalEsc);
+};
+
+const closeModal = (modal) => {
     modal.classList.remove("modal_toggle");
     modal.removeEventListener("click", closeModalClick);
     document.removeEventListener("keydown", closeModalEsc);
-  };
-  
-  const closeModalClick = (e) => {
+};
+
+const closeModalClick = (e) => {
     const modalToggle = document.querySelector(".modal_toggle");
-    if(e.target === modalToggle) {
+    if (e.target === modalToggle) {
         closeModal(modalToggle);
     };
-  };
-  
-  const closeModalEsc = (e) => {
+};
+
+const closeModalEsc = (e) => {
     const modalToggle = document.querySelector(".modal_toggle");
-    if(e.keyCode === 27) {
+    if (e.keyCode === 27) {
         closeModal(modalToggle);
     };
-  };
+};
 
 
 class Card {
@@ -40,7 +40,7 @@ class Card {
     }
 
     _getTemplate() {
-         const cardElement = document
+        const cardElement = document
             .querySelector(this._cardSelector)
             .content.querySelector(".elements__container")
             .cloneNode(true);
@@ -86,7 +86,7 @@ class Card {
 
     _handleDeleteIcon() {
         this._element.remove();
-        
+
     }
 
     _handleImagePreview() {
