@@ -22,8 +22,9 @@ const closeModalClick = (e) => {
 };
 
 const closeModalEsc = (e) => {
-    const modalToggle = document.querySelector(".modal_toggle");
-    if (e.keyCode === 27) {
+    
+    if (e.key === "Escape") {
+        const modalToggle = document.querySelector(".modal_toggle");
         closeModal(modalToggle);
     };
 };

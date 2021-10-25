@@ -4,10 +4,6 @@ import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
 
-//<><><><><> INITIALIZE <><><><><>//
-
-const cardTemplate = document.querySelector("#elements-template").content.querySelector(".elements__container");
-
 //<><><><><> PROFILE <><><><><>//
 
 const modalProfile = document.querySelector(".modal_profile");
@@ -46,8 +42,7 @@ function openProfileModal() {
   openModal(modalProfile);
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
-  modalProfile.addEventListener("click", closeModalClick);
-  document.addEventListener("keydown", closeModalEsc);
+  
 }
 
 const openModal = (modal) => {
@@ -63,9 +58,9 @@ const closeModal = (modal) => {
 };
 
 const closeModalClick = (e) => {
-  const modalToggle = document.querySelector(".modal_toggle");
-  if (e.target === modalToggle) {
-    closeModal(modalToggle);
+  
+  if (e.target === e.currentTarget) {
+    closeModal(e.target);
   };
 };
 
@@ -86,13 +81,17 @@ function profileFormSubmitHandler(event) {
 //<><><><><> CARDS <><><><><>//
 
 const renderCard = (data, container) => {
-  const card = new Card(data, cardSelector)
-  container.append(card.getView());
+  const newCard = new Card(data, cardSelector)
+  const newCardEl = newCard.getView();
+  container.prepend(newCardEl);
+
 }
 
 initialCards.forEach((card) => {
   renderCard(card, elements);
 });
+
+
 
 //<><><><><> EVENT LISTENERS <><><><><>// 
 
@@ -104,14 +103,18 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddButton.addEventListener("click", () => {
   openModal(modalAddCard);
+  addFormValidator.resetValidation()
 });
 
 profileFormCloseButton.addEventListener("click", () => {
   closeModal(modalProfile);
+ 
+  
 });
 
 addFormCloseButton.addEventListener("click", () => {
   closeModal(modalAddCard);
+  
 });
 
 modalImageExpandCloseButton.addEventListener("click", () => {
@@ -127,6 +130,7 @@ addFormEl.addEventListener("submit", (event) => {
 
   renderCard(data, elements);
   closeModal(modalAddCard);
+  
 });
 
 
