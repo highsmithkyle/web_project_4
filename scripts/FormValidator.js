@@ -41,8 +41,6 @@ class FormValidator {
 
   }
 
-
-
   _toggleButton(inputList, button) {
 
     if (this._hasValidInputs(inputList)) {
@@ -73,16 +71,6 @@ class FormValidator {
     this._setEventListeners();
 
   }
-
-
-  resetValidation() {
-    this._toggleButtonState();
-    this._inputList.forEach((input) => {
-      this._hideError(input)
-    });
-
-  }
-
 }
 
 export default FormValidator;

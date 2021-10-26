@@ -81,9 +81,8 @@ function profileFormSubmitHandler(event) {
 //<><><><><> CARDS <><><><><>//
 
 const renderCard = (data, container) => {
-  const newCard = new Card(data, cardSelector)
-  const newCardEl = newCard.getView();
-  container.prepend(newCardEl);
+  const newCard = new Card(data, cardSelector).getView();
+  container.prepend(newCard);
 
 }
 
@@ -103,17 +102,15 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddButton.addEventListener("click", () => {
   openModal(modalAddCard);
-  addFormValidator.resetValidation()
 });
 
 profileFormCloseButton.addEventListener("click", () => {
-  closeModal(modalProfile);
- 
-  
+  closeModal(modalProfile); 
 });
 
 addFormCloseButton.addEventListener("click", () => {
   closeModal(modalAddCard);
+  addFormEl.reset();
   
 });
 
@@ -130,6 +127,7 @@ addFormEl.addEventListener("submit", (event) => {
 
   renderCard(data, elements);
   closeModal(modalAddCard);
+  addFormEl.reset();
   
 });
 
