@@ -123,8 +123,9 @@ addFormEl.addEventListener("submit", (event) => {
   const data = {
     name: addFormPlaceInput.value,
     link: addFormUrlInput.value,
+    
   };
-
+  addFormEl.classList.remove(modal__save-button_disabled);
   renderCard(data, elements);
   closeModal(modalAddCard);
   addFormEl.reset();
