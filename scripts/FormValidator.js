@@ -41,6 +41,14 @@ class FormValidator {
 
   }
 
+  // resetValidation() {
+  //  this._toggleButton();
+  //  this._inputList.forEach((input) => {
+  //    this._hideError(input)
+  //  });
+
+  // }
+
   _toggleButton(inputList, button) {
 
     if (this._hasValidInputs(inputList)) {

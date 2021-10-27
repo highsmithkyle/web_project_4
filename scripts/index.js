@@ -125,7 +125,7 @@ addFormEl.addEventListener("submit", (event) => {
     link: addFormUrlInput.value,
     
   };
-  addFormEl.classList.remove(modal__save-button_disabled);
+  addFormEl.classList.remove(".modal__save-button_disabled");
   renderCard(data, elements);
   closeModal(modalAddCard);
   addFormEl.reset();
@@ -150,4 +150,3 @@ const addFormValidator = new FormValidator(validationSettings, addFormEl);
 
 profileFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
