@@ -45,10 +45,7 @@ class FormValidator {
     this._formEl.reset();
     this._toggleButton();
     
-
    }
-
-
 
   _toggleButton() {
 

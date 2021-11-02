@@ -42,7 +42,7 @@ function openProfileModal() {
   openModal(modalProfile);
   profileFormNameInput.value = profileTitle.textContent;
   profileFormAboutMeInput.value = profileSubtitle.textContent;
-  
+
 }
 
 const openModal = (modal) => {
@@ -58,7 +58,7 @@ const closeModal = (modal) => {
 };
 
 const closeModalClick = (e) => {
-  
+
   if (e.target === e.currentTarget) {
     closeModal(e.target);
   };
@@ -105,13 +105,13 @@ profileAddButton.addEventListener("click", () => {
 });
 
 profileFormCloseButton.addEventListener("click", () => {
-  closeModal(modalProfile); 
+  closeModal(modalProfile);
 });
 
 addFormCloseButton.addEventListener("click", () => {
   closeModal(modalAddCard);
   addFormEl.reset();
-  
+
 });
 
 modalImageExpandCloseButton.addEventListener("click", () => {
@@ -123,15 +123,15 @@ addFormEl.addEventListener("submit", (event) => {
   const data = {
     name: addFormPlaceInput.value,
     link: addFormUrlInput.value,
-    
+
   };
-  
+
   renderCard(data, elements);
   closeModal(modalAddCard);
-  
+
   addFormValidator.resetValidation();
-  
-  
+
+
 });
 
 

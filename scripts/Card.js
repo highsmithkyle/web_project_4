@@ -22,7 +22,7 @@ const closeModalClick = (e) => {
 };
 
 const closeModalEsc = (e) => {
-    
+
     if (e.key === "Escape") {
         const modalToggle = document.querySelector(".modal_toggle");
         closeModal(modalToggle);
