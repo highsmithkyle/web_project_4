@@ -83,14 +83,11 @@ function profileFormSubmitHandler(event) {
 const renderCard = (data, container) => {
   const newCard = new Card(data, cardSelector).getView();
   container.prepend(newCard);
-
 }
 
 initialCards.forEach((card) => {
   renderCard(card, elements);
 });
-
-
 
 //<><><><><> EVENT LISTENERS <><><><><>// 
 
@@ -123,7 +120,6 @@ addFormEl.addEventListener("submit", (event) => {
   const data = {
     name: addFormPlaceInput.value,
     link: addFormUrlInput.value,
-
   };
 
   renderCard(data, elements);

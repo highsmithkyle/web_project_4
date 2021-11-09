@@ -1,0 +1,27 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "Web Project 7",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highsmithkyle/web_project_4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/highsmithkyle/web_project_4/issues"
+  },
+  "homepage": "https://github.com/highsmithkyle/web_project_4#readme",
+  "devDependencies": {
+    "@webpack-cli/serve": "^1.6.0",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  }
+}
