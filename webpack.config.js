@@ -1,4 +1,7 @@
+// following live coding
+
 // const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const path = require("path");
 
 // module.exports = {
@@ -10,14 +13,23 @@
 // },
 
 // mode: "development",
+// module: {
+//   rules: [
+//     {
+//       test: /\.css$/i,
+//       use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+//     }
+//   ]
+// }
 // plugins: [
-//    new HtmlWebpackPlugin({
-//      template: "./src/index.hmtl"
-//    })]
-//  }
+//   new HtmlWebpackPlugin({
+//     template: "./src/index.html",
+//   }),
+// ],
+// },
 
 
-
+//from the theory
 
 
 const path = require('path');
@@ -28,30 +40,22 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    main: './src/index.js'
+    main: './src/pages/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
-    filename: 'bundle.js',
+    filename: 'main.js',
     publicPath: ''
   },
   target: ['web', 'es5'],
   stats: { children: true },
   mode: 'development',
   devServer: {
-    static: path.resolve(__dirname, './dist'),
+    contentBase: path.resolve(__dirname, './dist'),
     compress: true,
     port: 8080,
     open: true
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html" // path to index.html file
-    }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin() // connect the plugin for merging CSS files
-  ],
   module: {
     rules: [ // this is an array of rules
       // add an object containing rules for Babel to it
@@ -66,7 +70,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, "css-loader", "postcss-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -83,5 +87,78 @@ module.exports = {
       },
     ]
   },
-  
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/pages/index.html" // path to our index.html file
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin() // connect the plugin for merging CSS files
+  ]
 } 
+
+
+// const path = require('path');
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+// module.exports = {
+//   devtool: 'inline-source-map',
+//   entry: {
+//     main: './src/pages/index.js'
+//   },
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     clean: true,
+//     filename: 'bundle.js',
+//     publicPath: ''
+//   },
+//   target: ['web', 'es5'],
+//   stats: { children: true },
+//   mode: 'development',
+//   devServer: {
+//     static: path.resolve(__dirname, './dist'),
+//     compress: true,
+//     port: 8080,
+//     open: true
+//   },
+//   plugins: [
+//     new HtmlWebpackPlugin({
+//       template: "./src/index.html"
+//     }),
+//     new CleanWebpackPlugin(),
+//     new MiniCssExtractPlugin()
+//   ],
+//   module: {
+//     rules: [
+
+//       {
+        
+//         test: /\.js$/,
+        
+//         loader: "babel-loader",
+        
+//         exclude: "/node_modules/"
+//       },
+//       {
+//         test: /\.css$/,
+//         use: [
+//           MiniCssExtractPlugin.loader, "css-loader", "postcss-loader",
+//           {
+//             loader: "css-loader",
+//             options: {
+//               importLoaders: 1
+//             }
+//           },
+//           "postcss-loader"
+//         ],
+//       },
+//       {
+        
+//         test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+//         type: "asset/resource"
+//       },
+//     ]
+//   },
+  
+// } 

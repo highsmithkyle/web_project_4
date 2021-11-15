@@ -1,7 +1,8 @@
+import "./index.css"
 
-import initialCards from "./components/InitialCards.js"
-import FormValidator from "./components/FormValidator.js"
-import Card from "./components/Card.js";
+import initialCards from "../components/InitialCards.js"
+import FormValidator from "../components/FormValidator.js"
+import Card from "../components/Card.js";
 
 
 //<><><><><> PROFILE <><><><><>//
