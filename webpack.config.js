@@ -51,9 +51,10 @@ module.exports = {
   stats: { children: true },
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    static: './dist',
+    // contentBase: path.resolve(__dirname, './dist'),
     compress: true,
-    port: 8080,
+    port: 5500,
     open: true
   },
   module: {
