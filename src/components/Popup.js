@@ -4,13 +4,6 @@ export default class Popup {
         this._handleEscClose = this._handleEscapeClose.bind(this);
     }
 
-    _handleEscClose(evt) {
-        evt.preventDefault();
-        if (evt.keyCode === "Escape") {
-            this.close();
-        }
-    }
-
     setEventListeners() {
         this._modalElement.addEventListener("click", (e) => {
             if (
@@ -22,7 +15,12 @@ export default class Popup {
         });
     }
 
-
+    _handleEscClose(evt) {
+        evt.preventDefault();
+        if (evt.keyCode === "Escape") {
+            this.close();
+        }
+    }
 
     open() {
         this._modalElement.classList.add("modal_toggle");
