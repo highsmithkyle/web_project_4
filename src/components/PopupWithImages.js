@@ -1,6 +1,6 @@
 import Popup from './Popup';
 
-class PopupWithImages extends Popup {
+class PopupWithImage extends Popup {
     open({ link, name }) {
         this._modalElement.querySelector(".modal__image-subtitle").textContent = name;
         const image = this._modalElement.querySelector(".modal__image-preview");
@@ -10,3 +10,5 @@ class PopupWithImages extends Popup {
 
     }
 }
+
+export default PopupWithImage;
