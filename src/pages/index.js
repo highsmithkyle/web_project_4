@@ -40,12 +40,12 @@ const elements = document.querySelector(".elements");
 
 //<><><><><> FUNCTIONS <><><><><>//
 
-function openProfileModal() {
-  openModal(modalProfile);
-  profileFormNameInput.value = profileTitle.textContent;
-  profileFormAboutMeInput.value = profileSubtitle.textContent;
+// function openProfileModal() {
+//   openModal(modalProfile);
+//   profileFormNameInput.value = profileTitle.textContent;
+//   profileFormAboutMeInput.value = profileSubtitle.textContent;
 
-}
+// }
 
 // const openModal = (modal) => {
 //   modal.classList.add("modal_toggle");
