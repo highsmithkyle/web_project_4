@@ -47,31 +47,31 @@ function openProfileModal() {
 
 }
 
-const openModal = (modal) => {
-  modal.classList.add("modal_toggle");
-  modal.addEventListener("click", closeModalClick);
-  document.addEventListener("keydown", closeModalEsc);
-};
+// const openModal = (modal) => {
+//   modal.classList.add("modal_toggle");
+//   modal.addEventListener("click", closeModalClick);
+//   document.addEventListener("keydown", closeModalEsc);
+// };
 
-const closeModal = (modal) => {
-  modal.classList.remove("modal_toggle");
-  modal.removeEventListener("click", closeModalClick);
-  document.removeEventListener("keydown", closeModalEsc);
-};
+// const closeModal = (modal) => {
+//   modal.classList.remove("modal_toggle");
+//   modal.removeEventListener("click", closeModalClick);
+//   document.removeEventListener("keydown", closeModalEsc);
+// };
 
-const closeModalClick = (e) => {
+// const closeModalClick = (e) => {
 
-  if (e.target === e.currentTarget) {
-    closeModal(e.target);
-  };
-};
+//   if (e.target === e.currentTarget) {
+//     closeModal(e.target);
+//   };
+// };
 
-const closeModalEsc = (e) => {
-  const modalToggle = document.querySelector(".modal_toggle");
-  if (e.keyCode === 27) {
-    closeModal(modalToggle);
-  };
-};
+// const closeModalEsc = (e) => {
+//   const modalToggle = document.querySelector(".modal_toggle");
+//   if (e.keyCode === 27) {
+//     closeModal(modalToggle);
+//   };
+// };
 
 function profileFormSubmitHandler(event) {
   event.preventDefault();
@@ -137,6 +137,7 @@ addFormEl.addEventListener("submit", (event) => {
 
 const validationSettings = {
 
+  formSelector: ".modal__form",
   inputSelector: ".modal__info",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
