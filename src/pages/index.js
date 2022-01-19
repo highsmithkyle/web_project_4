@@ -1,9 +1,20 @@
 import "./index.css"
 
-import initialCards from "../components/InitialCards.js"
-import FormValidator from "../components/FormValidator.js"
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js"
+import initialCards from "../components/InitialCards.js"
+import PopupWithImage from "../components/PopupWithImage";
+import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo";
+
+
+
+
+
+
+
+
 
 
 //<><><><><> PROFILE <><><><><>//
@@ -40,38 +51,38 @@ const elements = document.querySelector(".elements");
 
 //<><><><><> FUNCTIONS <><><><><>//
 
-// function openProfileModal() {
-//   openModal(modalProfile);
-//   profileFormNameInput.value = profileTitle.textContent;
-//   profileFormAboutMeInput.value = profileSubtitle.textContent;
+function openProfileModal() {
+  openModal(modalProfile);
+  profileFormNameInput.value = profileTitle.textContent;
+  profileFormAboutMeInput.value = profileSubtitle.textContent;
 
-// }
+}
 
-// const openModal = (modal) => {
-//   modal.classList.add("modal_toggle");
-//   modal.addEventListener("click", closeModalClick);
-//   document.addEventListener("keydown", closeModalEsc);
-// };
+const openModal = (modal) => {
+  modal.classList.add("modal_toggle");
+  modal.addEventListener("click", closeModalClick);
+  document.addEventListener("keydown", closeModalEsc);
+};
 
-// const closeModal = (modal) => {
-//   modal.classList.remove("modal_toggle");
-//   modal.removeEventListener("click", closeModalClick);
-//   document.removeEventListener("keydown", closeModalEsc);
-// };
+const closeModal = (modal) => {
+  modal.classList.remove("modal_toggle");
+  modal.removeEventListener("click", closeModalClick);
+  document.removeEventListener("keydown", closeModalEsc);
+};
 
-// const closeModalClick = (e) => {
+const closeModalClick = (e) => {
 
-//   if (e.target === e.currentTarget) {
-//     closeModal(e.target);
-//   };
-// };
+  if (e.target === e.currentTarget) {
+    closeModal(e.target);
+  };
+};
 
-// const closeModalEsc = (e) => {
-//   const modalToggle = document.querySelector(".modal_toggle");
-//   if (e.keyCode === 27) {
-//     closeModal(modalToggle);
-//   };
-// };
+const closeModalEsc = (e) => {
+  const modalToggle = document.querySelector(".modal_toggle");
+  if (e.keyCode === 27) {
+    closeModal(modalToggle);
+  };
+};
 
 function profileFormSubmitHandler(event) {
   event.preventDefault();

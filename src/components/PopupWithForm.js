@@ -1,6 +1,6 @@
 import Popup from "./Popup"
 
-export default class PopupWithForms extends Popup {
+export default class PopupWithForm extends Popup {
     constructor({ popupSelector, handleFormSubmit }) {
         super(popupSelector)
 
@@ -34,4 +34,3 @@ export default class PopupWithForms extends Popup {
     }
 }
 
-export default PopupWithForms;
