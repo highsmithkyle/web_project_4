@@ -2,19 +2,11 @@ import "./index.css"
 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js"
-import initialCards from "../components/InitialCards.js"
+import initialCards from "../utils/InitialCards.js"
 import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
-
-
-
-
-
-
-
-
 
 
 //<><><><><> PROFILE <><><><><>//
