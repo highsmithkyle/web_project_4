@@ -1,11 +1,11 @@
 export const cardConstants = {
-
     cardSelector: '#elements-template',
     placeSelector: 'elements',
 }
 
 export const profileConstants = {
 
+    profileModalSelector: "modal_profile",
     modalProfile: document.querySelector(".modal_profile"),
     profileFormEL: document.querySelector(".modal__form_type_edit-form"),
     profileEditButton: document.querySelector(".profile__edit-button"),
@@ -19,7 +19,8 @@ export const profileConstants = {
 
 export const addCardConstants = {
 
-    modalAddCard: document.querySelector(".modal_add-card"),
+    addCardSelector: "modal_add-card",
+    addModalEl: document.querySelector(".modal_add-card"),
     addFormEl: document.querySelector(".modal__form_type_new-place"),
     addFormCloseButton: document.querySelector(".modal__close-button_type_new-place"),
     addFormPlaceInput: document.querySelector(".modal__info_place_new-title-input"),
@@ -28,7 +29,7 @@ export const addCardConstants = {
 
 export const imagePreviewConstants = {
 
-    modalImageExpandSelector: document.querySelector(".modal_type_image-expand"),
+    imagePreviewSelector: document.querySelector(".modal_type_image-expand"),
     // modalImagePreviewEl: modalImageExpand.querySelector(".modal__image-preview"),
     // modalImageExpandCloseButton: modalImageExpand.querySelector(".modal__close-button_place_image-expand"),
     // modalImageSubtitle: modalImageExpand.querySelector(".modal__image-subtitle"),
@@ -46,7 +47,7 @@ export const validationSettings = {
 }
 
 
-// turn these into string and export jan.20
+// not working,  try changing these into strings ?? jan.20
 
 
 //<><><><><> PROFILE <><><><><>//
