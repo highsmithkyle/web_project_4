@@ -38,7 +38,8 @@ export const imagePreviewConstants = {
 
 export const validationSettings = {
 
-    formSelector: ".modal__form",
+
+    formSelector: "modal__form",
     inputSelector: ".modal__info",
     submitButtonSelector: ".modal__save-button",
     inactiveButtonClass: "modal__save-button_disabled",
@@ -47,7 +48,7 @@ export const validationSettings = {
 }
 
 
-// not working,  try changing these into strings ?? jan.20
+// not working,  try changing these into strings ?? 
 
 
 //<><><><><> PROFILE <><><><><>//

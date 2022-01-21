@@ -45,7 +45,7 @@ const userInfo = new UserInfo({
 
 
 const profileModal = new PopupWithForm({
-  modalSelector: profileConstants.profileModalSelector,
+  popupSelector: profileConstants.profileModalSelector,
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data)
   },
@@ -54,7 +54,7 @@ const profileModal = new PopupWithForm({
 
 
 const addCardModal = new PopupWithForm({
-  modalSelector: addCardConstants.addCardSelector,
+  popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
     const newCard = new Card(
       {
@@ -65,6 +65,7 @@ const addCardModal = new PopupWithForm({
       },
       cardConstants.cardSelector
     );
+    cardList.addItem(newCard.getView)
   },
 });
 
