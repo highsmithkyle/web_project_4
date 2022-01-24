@@ -22,13 +22,13 @@ export default class Popup {
         }
     }
 
-    openModal() {
+    open() {
         this._modalElement.classList.add("modal_toggle");
         document.addEventListener("keydown", this._handleEscClose);
 
     }
 
-    closeModal() {
+    close() {
         this._modalElement.classList.remove("modal_toggle");
         document.removeEventListener("keydown", this._handleEscClose);
 

@@ -23,7 +23,7 @@ const cardList = new Section({
     const newCard = new Card({
       card,
       handlePreviewImage: () => {
-        previewImageModal.open(card)
+        previewImageModal.openModal(card)
       },
     },
       cardConstants.cardSelector
@@ -60,7 +60,7 @@ const addCardModal = new PopupWithForm({
       {
         card,
         handlePreviewImage: () => {
-          imagePreviewModal.open(card)
+          imagePreviewModal.openModal(card)
         },
       },
       cardConstants.cardSelector
@@ -89,7 +89,7 @@ imageExpandModal.setEventListeners();
 
 addCardConstants.addFormCloseButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
-  addCardModal.open();
+  addCardModal.openModal();
 })
 
 profileConstants.profileFormCloseButton.addEventListener("click", () => {
