@@ -72,7 +72,7 @@ const addCardModal = new PopupWithForm({
 const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSelector);
 
 const profileFormValidator = new FormValidator(validationSettings, profileConstants.profileFormEL);
-const addFormValidator = new FormValidator(validationSettings, addCardConstants.addFormEL);
+const addFormValidator = new FormValidator(validationSettings, addCardConstants.addFormEl);
 
 
 profileFormValidator.enableValidation();

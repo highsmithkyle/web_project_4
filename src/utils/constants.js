@@ -29,7 +29,7 @@ export const addCardConstants = {
 
 export const imagePreviewConstants = {
 
-    imagePreviewSelector: document.querySelector(".modal_type_image-expand"),
+    imagePreviewSelector: "modal_type_image-expand",
     // modalImagePreviewEl: modalImageExpand.querySelector(".modal__image-preview"),
     // modalImageExpandCloseButton: modalImageExpand.querySelector(".modal__close-button_place_image-expand"),
     // modalImageSubtitle: modalImageExpand.querySelector(".modal__image-subtitle"),
