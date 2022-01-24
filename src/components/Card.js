@@ -5,11 +5,11 @@ const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitl
 
 class Card {
 
-    constructor({ data, handleImagePreview }, cardSelector) {
+    constructor({ card, handleImagePreview }, cardSelector) {
 
-        this._name = data.name;
-        this._link = data.link;
-        this._handleImagePreview = handleImagePreview
+        this._name = card.name;
+        this._link = card.link;
+        this._handleImagePreview = handleImagePreview;
 
 
 
@@ -40,6 +40,8 @@ class Card {
 
     }
 
+
+
     _setEventListeners() {
         this._element
             .querySelector(".elements__image")
@@ -66,12 +68,7 @@ class Card {
 
     }
 
-    _handleImagePreview() {
-        open(modalImageExpand)
-        modalImagePreviewEl.src = this._link;
-        modalImagePreviewEl.alt = this._name;
-        modalImageSubtitle.textContent = this._name
-    }
+
 
 }
 

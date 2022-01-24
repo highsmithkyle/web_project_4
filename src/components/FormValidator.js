@@ -28,7 +28,7 @@ class FormValidator {
   }
 
   _checkInputValidity = (input) => {
-    console.log(input)
+    // console.log(input)
     if (input.validity.valid) {
       this._hideInputError(input);
     } else {
@@ -41,11 +41,11 @@ class FormValidator {
 
   }
 
-   resetValidation() {
+  resetValidation() {
     this._formEl.reset();
     this._toggleButton();
-    
-   }
+
+  }
 
   _toggleButton() {
 
