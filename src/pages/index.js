@@ -23,7 +23,7 @@ const cardList = new Section({
     const newCard = new Card({
       card,
       handlePreviewImage: () => {
-        previewImageModal.open(card)
+        imageExpandModal.open(card)
       },
     },
       cardConstants.cardSelector
