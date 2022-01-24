@@ -1,5 +1,6 @@
 import Popup from './Popup';
 
+
 class PopupWithImage extends Popup {
     openModal({ link, name }) {
         this._modalElement.querySelector(".modal__image-subtitle").textContent = name;
