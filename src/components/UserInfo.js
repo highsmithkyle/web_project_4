@@ -1,12 +1,13 @@
 class UserInfo {
     constructor({ userNameSelector, userDescriptionSelector }) {
-        this._userNameSelector = userNameSelector;
+        debugger;
+        this._userNameElement = userNameSelector;
         this._userDescriptionSelector = userDescriptionSelector;
     }
 
     getUserInfo() {
         return {
-            userName: this._userNameEl.textContent,
+            userName: this._userNameElement.textContent,
             userDescription: this._userDescriptionEl.textContent,
         };
     }

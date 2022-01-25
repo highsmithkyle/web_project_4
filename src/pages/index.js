@@ -38,8 +38,8 @@ const cardList = new Section({
 
 
 const userInfo = new UserInfo({
-  profileNameSelector: profileConstants.profileTitle,
-  profileSubtitleSelector: profileConstants.profileSubtitle,
+  userNameSelector: profileConstants.profileTitle,
+  userDescriptionSelector: profileConstants.profileSubtitle,
 });
 
 
@@ -50,7 +50,6 @@ const profileModal = new PopupWithForm({
     userInfo.setUserInfo(data)
   },
 });
-
 
 
 const addCardModal = new PopupWithForm({
