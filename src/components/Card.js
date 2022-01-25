@@ -11,8 +11,6 @@ class Card {
         this._link = card.link;
         this._handlePreviewImage = handlePreviewImage;
 
-
-
         this._cardSelector = cardSelector;
     }
 
@@ -58,12 +56,10 @@ class Card {
         this._element
             .querySelector(".elements__heart")
             .classList.toggle("elements__heart_active");
-
     }
 
     _handleDeleteIcon() {
         this._element.remove();
-
     }
 
     _handlePreviewImage() {

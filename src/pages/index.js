@@ -36,16 +36,15 @@ const cardList = new Section({
 );
 
 
-
 const userInfo = new UserInfo({
   userNameSelector: profileConstants.profileTitle,
   userDescriptionSelector: profileConstants.profileSubtitle,
 });
 
 
-
 const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
+
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data)
   },
