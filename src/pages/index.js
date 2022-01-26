@@ -47,7 +47,10 @@ const profileModal = new PopupWithForm({
 
   handleFormSubmit: (data) => {
     debugger;
-    userInfo.setUserInfo(data)
+    userInfo.setUserInfo({
+      userName: data.name,
+      userDescription: data[`about-me`],
+    })
   },
 });
 
