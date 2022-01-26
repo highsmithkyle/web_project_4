@@ -15,9 +15,10 @@ export default class Popup {
         });
     }
 
-    _handleEscClose(evt) {
+    _handleEscClose(e) {
 
-        if (evt.keyCode === "Escape") {
+        if (e.key === "Escape") {
+
             this.close();
             // evt.preventDefault();
         }

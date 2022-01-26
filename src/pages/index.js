@@ -63,7 +63,8 @@ const addCardModal = new PopupWithForm({
       {
         card,
         handlePreviewImage: () => {
-          imagePreviewModal.open(card)
+
+          imageExpandModal.open(card)
         },
       },
       cardConstants.cardSelector
