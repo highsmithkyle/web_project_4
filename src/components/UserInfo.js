@@ -2,7 +2,7 @@
 
 class UserInfo {
     constructor({ userNameSelector, userDescriptionSelector }) {
-        // debugger;
+
         this._userNameEl = userNameSelector;
         this._userDescriptionEl = userDescriptionSelector;
     }
@@ -15,7 +15,7 @@ class UserInfo {
     }
 
     setUserInfo({ userName, userDescription }) {
-        // debugger;
+
         this._userNameEl.textContent = userName;
         this._userDescriptionEl.textContent = userDescription;
     }

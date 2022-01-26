@@ -46,7 +46,7 @@ const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
 
   handleFormSubmit: (data) => {
-    debugger;
+    // debugger;
     userInfo.setUserInfo({
       userName: data.name,
       userDescription: data[`about-me`],
@@ -58,6 +58,7 @@ const profileModal = new PopupWithForm({
 const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
+    // debugger;
     const newCard = new Card(
       {
         card,
