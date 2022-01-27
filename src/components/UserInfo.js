@@ -1,6 +1,5 @@
 
-
-class UserInfo {
+export default class UserInfo {
     constructor({ userNameSelector, userDescriptionSelector }) {
 
         this._userNameEl = userNameSelector;
@@ -20,5 +19,3 @@ class UserInfo {
         this._userDescriptionEl.textContent = userDescription;
     }
 }
-
-export default UserInfo

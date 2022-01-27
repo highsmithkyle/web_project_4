@@ -91,15 +91,17 @@ imageExpandModal.setEventListeners();
 
 // FUNCTIONS //
 
+
 profileConstants.profileAddButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
   addCardModal.open();
 })
 
 profileConstants.profileEditButton.addEventListener("click", () => {
+  debugger;
   const profileInfo = userInfo.getUserInfo();
-  profileConstants.profileTitle.value = profileInfo.name;
-  profileConstants.profileSubtitle.value = profileInfo.about;
+  profileConstants.profileFormNameInput.value = profileInfo.userName;
+  profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
 
   profileFormValidator.resetValidation();
   profileModal.open();
