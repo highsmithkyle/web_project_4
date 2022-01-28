@@ -98,10 +98,7 @@ profileConstants.profileAddButton.addEventListener("click", () => {
 })
 
 profileConstants.profileEditButton.addEventListener("click", () => {
-
-
   const profileInfo = userInfo.getUserInfo();
-
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
 
