@@ -1,7 +1,3 @@
-const modalImageExpand = document.querySelector(".modal_type_image-expand");
-const modalImagePreviewEl = modalImageExpand.querySelector(".modal__image-preview");
-const modalImageSubtitle = modalImageExpand.querySelector(".modal__image-subtitle")
-
 
 class Card {
 
@@ -47,26 +43,16 @@ class Card {
             .querySelector(".elements__delete")
             .addEventListener("click", () => this._handleDeleteIcon());
 
-        this._element
-            .querySelector(".elements__heart")
-            .addEventListener("click", () => this._handleLikeIcon());
+        this._heartLike = this._element.querySelector(".elements__heart");
+        this._heartLike.addEventListener("click", () => this._handleLikeIcon());
     }
 
     _handleLikeIcon() {
-        this._element
-            .querySelector(".elements__heart")
-            .classList.toggle("elements__heart_active");
+        this._heartLike.classList.toggle("elements__heart_active");
     }
 
     _handleDeleteIcon() {
         this._element.remove();
-    }
-
-    _handlePreviewImage() {
-        open(modalImageExpand)
-        modalImagePreviewEl.src = this._link;
-        modalImagePreviewEl.alt = this._name;
-        modalImageSubtitle.textContent = this._name
     }
 
 }

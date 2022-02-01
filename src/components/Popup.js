@@ -18,22 +18,18 @@ export default class Popup {
     _handleEscClose(e) {
 
         if (e.key === "Escape") {
-
             this.close();
-            // evt.preventDefault();
         }
     }
 
     open() {
         this._modalElement.classList.add("modal_toggle");
         document.addEventListener("keydown", this._handleEscClose);
-
     }
 
     close() {
         this._modalElement.classList.remove("modal_toggle");
         document.removeEventListener("keydown", this._handleEscClose);
-
     }
 }
 

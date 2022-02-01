@@ -36,15 +36,15 @@ const cardList = new Section({
 );
 
 
+
 const userInfo = new UserInfo({
-  userNameSelector: profileConstants.profileTitle,
-  userDescriptionSelector: profileConstants.profileSubtitle,
+  userNameElement: profileConstants.profileTitle,
+  userDescriptionElement: profileConstants.profileSubtitle,
 });
 
 
 const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
-
   handleFormSubmit: (data) => {
 
     userInfo.setUserInfo({
@@ -98,11 +98,12 @@ profileConstants.profileAddButton.addEventListener("click", () => {
 })
 
 profileConstants.profileEditButton.addEventListener("click", () => {
+
   const profileInfo = userInfo.getUserInfo();
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
 
-
+  // profileFormValidator.resetValidation();
   profileModal.open();
 });
 

@@ -41,11 +41,6 @@ class FormValidator {
 
   }
 
-  resetValidation() {
-    this._formEl.reset();
-    this._toggleButton();
-
-  }
 
   _toggleButton() {
 
@@ -67,6 +62,14 @@ class FormValidator {
         this._checkInputValidity(input);
         this._toggleButton()
       })
+    });
+  }
+
+  resetValidation() {
+
+    this._toggleButton();
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
     });
   }
 
