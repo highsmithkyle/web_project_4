@@ -17,26 +17,6 @@ import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 
-// // old
-// const cardList = new Section({
-//   renderer: (card) => {
-//     const newCard = new Card({
-//       card,
-//       handlePreviewImage: () => {
-//         imageExpandModal.open(card)
-//       },
-//     },
-//       cardConstants.cardSelector
-//     );
-//     const cardElement = newCard.getView();
-//     cardList.addItem(cardElement);
-//   },
-// },
-//   cardConstants.placeSelector
-// );
-
-
-// new 
 
 
 const createCard = (data) => {
@@ -53,10 +33,8 @@ const createCard = (data) => {
 }
 
 
-
 const cardList = new Section(
   {
-
     renderer: (data) => {
       cardList.addItem(createCard(data));
     },
@@ -64,7 +42,7 @@ const cardList = new Section(
   cardConstants.placeSelector
 );
 
-//////////////////
+
 
 const userInfo = new UserInfo({
   userNameElement: profileConstants.profileTitle,
@@ -86,21 +64,12 @@ const profileModal = new PopupWithForm({
 
 const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
-  handleFormSubmit: (card) => {
-
-    const newCard = new Card(
-      {
-        card,
-        handlePreviewImage: () => {
-
-          imageExpandModal.open(card)
-        },
-      },
-      cardConstants.cardSelector
-    );
-    cardList.addItem(newCard.getView())
+  handleFormSubmit: (data) => {
+    cardList.addItem(createCard(data));
   },
 });
+
+
 
 const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSelector);
 
@@ -132,6 +101,7 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
   profileModal.open();
+  profileModal.resetValidation();
 });
 
 
