@@ -17,7 +17,7 @@ import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 
-
+// og
 const cardList = new Section({
   renderer: (card) => {
     const newCard = new Card({
@@ -32,6 +32,38 @@ const cardList = new Section({
     cardList.addItem(cardElement);
   },
 },
+  cardConstants.placeSelector
+);
+
+
+
+
+
+// // new 
+
+
+const createCard = (data) => {
+  const card = new Card(
+    {
+      data,
+      handlePreviewImage: () => {
+        imageExpandModal.open(data)
+      },
+    },
+    cardConstants.cardSelector
+  );
+  return card.getView();
+}
+
+
+
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      cardList.addItem(createCard(data));
+    },
+  },
   cardConstants.placeSelector
 );
 
