@@ -17,29 +17,26 @@ import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 
-// og
-const cardList = new Section({
-  renderer: (card) => {
-    const newCard = new Card({
-      card,
-      handlePreviewImage: () => {
-        imageExpandModal.open(card)
-      },
-    },
-      cardConstants.cardSelector
-    );
-    const cardElement = newCard.getView();
-    cardList.addItem(cardElement);
-  },
-},
-  cardConstants.placeSelector
-);
+// // old
+// const cardList = new Section({
+//   renderer: (card) => {
+//     const newCard = new Card({
+//       card,
+//       handlePreviewImage: () => {
+//         imageExpandModal.open(card)
+//       },
+//     },
+//       cardConstants.cardSelector
+//     );
+//     const cardElement = newCard.getView();
+//     cardList.addItem(cardElement);
+//   },
+// },
+//   cardConstants.placeSelector
+// );
 
 
-
-
-
-// // new 
+// new 
 
 
 const createCard = (data) => {
@@ -59,7 +56,7 @@ const createCard = (data) => {
 
 const cardList = new Section(
   {
-    items: initialCards,
+
     renderer: (data) => {
       cardList.addItem(createCard(data));
     },
@@ -67,7 +64,7 @@ const cardList = new Section(
   cardConstants.placeSelector
 );
 
-
+//////////////////
 
 const userInfo = new UserInfo({
   userNameElement: profileConstants.profileTitle,
