@@ -33,8 +33,15 @@ export const imagePreviewConstants = {
 
 }
 
-export const validationSettings = {
+export const avatarConstants = {
 
+    avatarModalEl: document.querySelector(".modal_avatar"),
+    avatarEditButton: document.querySelector(".profile__avatar-button"),
+    avatarFormEl: document.querySelector(".modal__form_type_avatar"),
+}
+
+
+export const validationSettings = {
 
     formSelector: "modal__form",
     inputSelector: ".modal__info",

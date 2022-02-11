@@ -2,6 +2,7 @@ import "./index.css"
 
 import {
   cardConstants,
+  avatarConstants,
   profileConstants,
   addCardConstants,
   imagePreviewConstants,
@@ -16,10 +17,9 @@ import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
+// import Api from "../components/Api.js;"
 
-// function loadingHandler() {
 
-// }
 
 // const api = new Api({
 //   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -85,19 +85,23 @@ const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSe
 
 const profileFormValidator = new FormValidator(validationSettings, profileConstants.profileFormEL);
 const addFormValidator = new FormValidator(validationSettings, addCardConstants.addFormEl);
+// const avatarFormValidator = new FormValidator(validationSettings, avatarConstants.avatarFormEl);
+
 
 
 profileFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-cardList.renderItems(initialCards);
+// avatarFormValidator.enableValidation();
 
 addCardModal.setEventListeners();
 profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
 
 
-// FUNCTIONS //
+cardList.renderItems(initialCards);
+
+
+// Buttons //
 
 
 profileConstants.profileAddButton.addEventListener("click", () => {
@@ -114,7 +118,9 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileModal.resetValidation();
 });
 
+avatarConstants.avatarEditButton.addEventListener("click", () => {
 
+})
 
 
 
