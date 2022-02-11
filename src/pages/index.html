@@ -11,6 +11,37 @@
 
 <body class="page">
 
+
+
+    <div class="modal modal_type_delete">
+        <div class="modal__box modal__box_type_delete">
+            <form class="modal__form modal__form_type_delete-form" name="edit-form-delete">
+                <button class="modal__close-button modal__close-button_type_delete" id="modal-close-button"
+                    type="button"></button>
+                <h2 class="modal__title">Are you sure?</h2>
+                <button class="button modal__save-button modal__save-button_type_delete" id="delete-modal-save-button"
+                    type="submit">Yes</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal modal_type_avatar">
+        <div class="modal__box">
+            <form class="modal__form modal__form_type_avatar" name="edit-form-avatar">
+                <button class="modal__close-button modal__close-button_type_avatar" id="modal-close-button"
+                    type="button"></button>
+                <h2 class="modal__title">Change profile picture</h2>
+                <input id="link-avatar-input" class="modal__info modal__info_place_url-input" type="url" name="link"
+                    placeholder="Image Link" required>
+                <span id="url-input-error" class="modal__error"></span>
+                <button class="button modal__save-button modal__save-button_type_avatar" id="avatar-modal-save-button"
+                    type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+
+
     <div class="modal modal_profile">
         <div class="modal__box">
             <form class="modal__form modal__form_type_edit-form" name="edit-form-profile">
@@ -28,6 +59,7 @@
         </div>
     </div>
 
+
     <div class="modal modal_add-card">
         <div class="modal__box">
             <form class="modal__form modal__form_type_new-place" name="edit-form-add">
@@ -37,17 +69,15 @@
                 <input id="add-card-title" class="modal__info modal__info_place_new-title-input" type="text" name="name"
                     placeholder="Title" required minlength="1" maxlength="30">
                 <span id="add-card-title-error" class="modal__error"></span>
-
-
                 <input id="add-card-url" class="modal__info modal__info_place_url-input" type="url" name="link"
                     placeholder="Image Link" required>
                 <span id="add-card-url-error" class="modal__error"></span>
                 <button class="button modal__save-button modal__save-button_type_new-place modal__save-button_disabled"
                     id="add-modal-save-button" type="submit">Create</button>
-
             </form>
         </div>
     </div>
+
 
     <div class="modal modal_type_image-expand">
         <div class="modal__box modal__box_type_image-expand">
@@ -57,6 +87,9 @@
             <div class="modal__image-subtitle"></div>
         </div>
     </div>
+
+
+
 
     <header class="header">
         <img class="header__logo" src="<%=require('/src/images/logo.svg')%>" alt="logo" />
@@ -69,6 +102,7 @@
                 <div class="profile__elipse">
                     <img class="profile__image" src="<%=require('/src/images/jacques-cousteau.png')%>"
                         alt="profile-image" />
+                    <button class="button profile__avatar-button" type="button"></button>
                 </div>
             </div>
 

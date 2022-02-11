@@ -17,7 +17,17 @@ import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 
+// function loadingHandler() {
 
+// }
+
+// const api = new Api({
+//   baseUrl: "https://around.nomoreparties.co/v1/group-12",
+//   headers: {
+//     authorization: "f4ba53cb-c4b1-4360-b78c-98b41af44bf6",
+//     "Content-Type": "application/json",
+//   },
+// });
 
 const createCard = (data) => {
   const card = new Card(
