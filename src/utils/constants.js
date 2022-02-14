@@ -28,9 +28,7 @@ export const addCardConstants = {
 }
 
 export const imagePreviewConstants = {
-
     imagePreviewSelector: "modal_type_image-expand",
-
 }
 
 export const avatarConstants = {
@@ -38,6 +36,7 @@ export const avatarConstants = {
     avatarModalEl: document.querySelector(".modal_avatar"),
     avatarEditButton: document.querySelector(".profile__avatar-button"),
     avatarFormEl: document.querySelector(".modal__form_type_avatar"),
+    avatarElement: document.querySelector(".profile__avatar")
 }
 
 

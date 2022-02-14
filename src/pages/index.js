@@ -17,17 +17,21 @@ import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
-// import Api from "../components/Api.js;"
+import Api from "../components/Api.js;"
 
 
 
-// const api = new Api({
-//   baseUrl: "https://around.nomoreparties.co/v1/group-12",
-//   headers: {
-//     authorization: "f4ba53cb-c4b1-4360-b78c-98b41af44bf6",
-//     "Content-Type": "application/json",
-//   },
-// });
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "f4ba53cb-c4b1-4360-b78c-98b41af44bf6",
+    "Content-Type": "application/json",
+  },
+});
+
+const initialProfile = api.getInitialProfile();
+const initialCards = api.getInitialCards();
+
 
 const createCard = (data) => {
   const card = new Card(
@@ -57,6 +61,7 @@ const cardList = new Section(
 const userInfo = new UserInfo({
   userNameElement: profileConstants.profileTitle,
   userDescriptionElement: profileConstants.profileSubtitle,
+  userAvatarElement: avatarConstants.avatarElement,
 });
 
 

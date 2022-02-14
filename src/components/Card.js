@@ -1,11 +1,12 @@
 
 class Card {
 
-    constructor({ data, handlePreviewImage }, cardSelector) {
+    constructor({ data, handlePreviewImage, handleLikeIcon, handleDeleteIcon }, cardSelector) {
 
         this._name = data.name;
         this._link = data.link;
         this._handlePreviewImage = handlePreviewImage;
+
 
         this._cardSelector = cardSelector;
     }
@@ -18,6 +19,11 @@ class Card {
 
         return cardElement
     }
+
+    _checkLikes(card) {
+
+    }
+
 
     getView() {
 
