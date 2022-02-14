@@ -12,12 +12,12 @@ import {
 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js"
-import initialCards from "../utils/InitialCards.js"
+// import initialCards from "../utils/InitialCards.js"
 import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
-import Api from "../components/Api.js;"
+import Api from "../components/Api"
 
 
 
@@ -33,6 +33,8 @@ const initialProfile = api.getInitialProfile();
 const initialCards = api.getInitialCards();
 
 
+
+
 const createCard = (data) => {
   const card = new Card(
     {
@@ -40,10 +42,17 @@ const createCard = (data) => {
       handlePreviewImage: () => {
         imageExpandModal.open(data)
       },
+      handleDeleteIcon: (evt) => {
+        deleteCard.open(evt, card_id);
+      },
+      handleLikeIcon: (buttonLiked) => {
+        return buttonLiked ? api.likeCard(card._id) : api.removeLike(card._id)
+      },
+      userId: userInfo.getId(),
     },
     cardConstants.cardSelector
   );
-  return card.getView();
+  return card
 }
 
 
@@ -103,7 +112,7 @@ profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
 
 
-cardList.renderItems(initialCards);
+// cardList.renderItems(initialCards);
 
 
 // Buttons //

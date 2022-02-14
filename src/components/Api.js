@@ -1,7 +1,7 @@
 export default class Api {
-    constructor(config) {
-        this._baseUrl = config.baseUrl;
-        this._headers = config.headers;
+    constructor(baseUrl, headers) {
+        this._baseUrl = baseUrl;
+        this._headers = headers;
     }
 
 
@@ -40,34 +40,6 @@ export default class Api {
         }).then((res) => this._checkErrors(res));
     }
 
-    changeProfileAvatar({ avatar }) {
-        return fetch(`${this.baseUrl}/users/me/avatar`, {
-            method: "PATCH",
-            headers: this.headers,
-            body: JSON.stringify({ avatar: avatar }),
-        }).then((res) => this._checkErrors(res));
-    }
 
-    deleteCard(cardId) {
-        return fetch(`${this.baseUrl}/cards${cardId}`, {
-            method: "DELETE",
-            headers: this.headers
-        }).then((res) => this._checkErrors(res));
-    }
-
-    likeCard(cardId) {
-        return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
-            method: "PUT",
-            headers: this.headers
-        }).then((res) => this._checkErrors(res));
-    }
-
-    removeLike(cardId) {
-        return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
-            method: "DELETE",
-            headers: this.headers
-        }).then((res) => this._checkErrors(res));
-
-    }
 }
 
