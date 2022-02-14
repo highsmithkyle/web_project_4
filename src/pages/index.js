@@ -29,6 +29,11 @@ const api = new Api({
   },
 });
 
+
+
+
+
+
 const initialProfile = api.getInitialProfile();
 const initialCards = api.getInitialCards();
 

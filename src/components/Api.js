@@ -13,12 +13,14 @@ export default class Api {
     }
 
     getInitialProfile() {
+        // debugger;
         return fetch(`${this.baseUrl}/users/me`, {
             headers: this.headers,
         }).then((res) => this._checkErrors(res))
     }
 
     getInitialCards() {
+        // debugger;
         return fetch(`${this.baseUrl}/cards`, {
             headers: this.headers,
         }).then((res) => this._checkErrors(res))

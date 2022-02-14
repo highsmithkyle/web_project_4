@@ -47,7 +47,6 @@ class Card {
 
 
 
-
     _setEventListeners() {
         this._element
             .querySelector(".elements__image")
