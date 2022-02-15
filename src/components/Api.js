@@ -1,9 +1,8 @@
 export default class Api {
-    constructor(baseUrl, headers) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
+    constructor(options) {
+        this.baseUrl = options.baseUrl;
+        this.headers = options.headers;
     }
-
 
     _checkErrors(res) {
         if (res.ok) {
@@ -13,7 +12,7 @@ export default class Api {
     }
 
     getInitialProfile() {
-        // debugger;
+
         return fetch(`${this.baseUrl}/users/me`, {
             headers: this.headers,
         }).then((res) => this._checkErrors(res))
@@ -26,22 +25,5 @@ export default class Api {
         }).then((res) => this._checkErrors(res))
     }
 
-    fetchCard({ name, link }) {
-        return fetch(`${this.baseUrl}/cards`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify({ name, link })
-        }).then((res) => this._checkErrors(res));
-    }
-
-    fetchProfileInfo({ name, about }) {
-        return fetch(`${this.baseUrl}/users/me`, {
-            method: "PATCH",
-            headers: this.headers,
-            body: JSON.stringify({ name: name, about: about }),
-        }).then((res) => this._checkErrors(res));
-    }
-
 
 }
-

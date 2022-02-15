@@ -1,7 +1,8 @@
-
 class Card {
 
+
     constructor({ data, handlePreviewImage, handleLikeIcon, handleDeleteIcon, userId }, cardSelector) {
+
 
         this._userId = userId;
         this._name = data.name;
@@ -28,10 +29,9 @@ class Card {
     }
 
 
-
     getView() {
 
-        this._element = this._getTemplate();
+        this._getTemplate();
         this._setEventListeners();
 
         const cardImage = this._element.querySelector(".elements__image");
@@ -39,12 +39,11 @@ class Card {
         this._element.querySelector(".elements__text").textContent = this._name
         cardImage.src = this._link;
         cardImage.alt = this._name;
-        this._getInitialLikes(cardImage);
+        // this._getInitialLikes(cardImage);
 
         return this._element;
 
     }
-
 
 
     _setEventListeners() {
@@ -74,6 +73,31 @@ class Card {
     _handleDeleteIcon() {
         this._element.remove();
     }
+
+
+    _checkLikes(data) {
+        this._element.querySelector(".elements__heart-number").textContent = data.likes.length;
+    }
+
+    _liked(e) {
+        this._handleLikeIcon(
+            !e.target.classList.contains(".elements__heart_active")
+        ).then((data) => {
+            this._checkLikes(data);
+        }).catch((error) => {
+            console.log(`Error:${error}`)
+        });
+    }
+
+    _getInitialLikes() {
+        const userLikeCard = this._likedCard.some((item) => item._id === this._userId);
+        if (userLikeCard) {
+            this._heartLike.classList.add(".elements__heart_active")
+        }
+        this._element.querySelector(".elements__heart-number").textContent = this._numberLikes;
+    }
+
+
 
 }
 

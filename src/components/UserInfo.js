@@ -4,7 +4,7 @@ export default class UserInfo {
 
         this._userNameEl = userNameElement;
         this._userDescriptionEl = userDescriptionElement;
-        this.userAvatarElement = userAvatarElement;
+        this._userAvatarElement = userAvatarElement;
     }
 
     getUserInfo() {
@@ -14,14 +14,13 @@ export default class UserInfo {
         };
     }
 
-    setUserInfo({ data }) {
-
+    setUserInfo(data) {
+        // debugger;
         this._userNameEl.textContent = data.name;
         this._userDescriptionEl.textContent = data.about;
-        this._userAvatar.src = data.avatar;
+        this._userAvatarElement.src = data.avatar;
         this._userId = data._id;
     }
-
 
     getId() {
         return this._userId

@@ -21,6 +21,9 @@ import Api from "../components/Api"
 
 
 
+
+
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -29,14 +32,19 @@ const api = new Api({
   },
 });
 
-
-
-
-
-
 const initialProfile = api.getInitialProfile();
 const initialCards = api.getInitialCards();
 
+Promise.all([initialProfile, initialCards])
+
+  .then(([userData, cards]) => {
+    // debugger;
+    userInfo.setUserInfo(userData);
+    cardList.renderItems(cards);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 
 
@@ -63,40 +71,63 @@ const createCard = (data) => {
 
 const cardList = new Section(
   {
-    renderer: (data) => {
-      cardList.addItem(createCard(data));
+    renderer: (card) => {
+
+
+      const newCard = createCard(card);
+      const cardElement = newCard.getView();
+      cardList.addItem(cardElement);
     },
   },
   cardConstants.placeSelector
 );
 
 
-
 const userInfo = new UserInfo({
+
   userNameElement: profileConstants.profileTitle,
   userDescriptionElement: profileConstants.profileSubtitle,
   userAvatarElement: avatarConstants.avatarElement,
 });
 
 
-const profileModal = new PopupWithForm({
-  popupSelector: profileConstants.profileModalSelector,
-  handleFormSubmit: (data) => {
-
-    userInfo.setUserInfo({
-      userName: data.name,
-      userDescription: data[`about-me`],
-    })
-  },
-});
 
 
 const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
-  handleFormSubmit: (data) => {
-    cardList.addItem(createCard(data));
+  handleFormSubmit: (card) => {
+    loadingHandler(true, addCardConstants.modalSelector, "Generating");
+    api.fetchCard(card).then((cardData) => {
+      const newCard = createCard(cardData);
+      cardList.addItem(newCard.getView());
+      addCardModal.close()
+    })
+      .catch((err) => {
+        console.error(err)
+      })
+      .finally(() => {
+        loadingHandler(false, addCardConstants.addCardSelector, "create")
+      })
+
   },
 });
+
+
+// const profileModal = new PopupWithForm({
+//   popupSelector: profileConstants.profileModalSelector,
+//   handleFormSubmit: (data) => {
+
+//     userInfo.setUserInfo({
+//       userName: data.name,
+//       userDescription: data[`about-me`],
+//     })
+//   },
+// });
+
+
+
+
+
 
 
 
@@ -104,16 +135,16 @@ const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSe
 
 const profileFormValidator = new FormValidator(validationSettings, profileConstants.profileFormEL);
 const addFormValidator = new FormValidator(validationSettings, addCardConstants.addFormEl);
-// const avatarFormValidator = new FormValidator(validationSettings, avatarConstants.avatarFormEl);
+const avatarFormValidator = new FormValidator(validationSettings, avatarConstants.avatarFormEl);
 
 
 
 profileFormValidator.enableValidation();
 addFormValidator.enableValidation();
-// avatarFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
-addCardModal.setEventListeners();
-profileModal.setEventListeners();
+// addCardModal.setEventListeners();
+// profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
 
 
@@ -137,9 +168,9 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileModal.resetValidation();
 });
 
-avatarConstants.avatarEditButton.addEventListener("click", () => {
+// avatarConstants.avatarEditButton.addEventListener("click", () => {
 
-})
+// })
 
 
 
