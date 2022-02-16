@@ -19,11 +19,27 @@ export default class Api {
     }
 
     getInitialCards() {
-        // debugger;
+
         return fetch(`${this.baseUrl}/cards`, {
             headers: this.headers,
         }).then((res) => this._checkErrors(res))
     }
 
+    fetchCard({ name, link }) {
+        debugger;
+        return fetch(`${this.baseUrl}/cards`, {
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify({ name, link }),
+        }).then((res) => this._checkErrors(res))
+    }
+
+    fetchProfileInfo({ name, about }) {
+        return fetch(`${this.baseUrl}/users/me`, {
+            method: "PATCH",
+            headers: this.headers,
+            body: JSON.stringify({ name: name, about: about }),
+        }).then((res) => this._checkErrors(res))
+    }
 
 }

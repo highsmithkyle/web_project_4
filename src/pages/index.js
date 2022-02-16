@@ -22,8 +22,6 @@ import Api from "../components/Api"
 
 
 
-
-
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -35,16 +33,19 @@ const api = new Api({
 const initialProfile = api.getInitialProfile();
 const initialCards = api.getInitialCards();
 
+
+
 Promise.all([initialProfile, initialCards])
 
   .then(([userData, cards]) => {
-    // debugger;
+
     userInfo.setUserInfo(userData);
     cardList.renderItems(cards);
   })
-  .catch((err) => {
-    console.error(err);
+  .catch((error) => {
+    console.error(error);
   });
+
 
 
 
@@ -69,11 +70,11 @@ const createCard = (data) => {
 }
 
 
+
+
 const cardList = new Section(
   {
     renderer: (card) => {
-
-
       const newCard = createCard(card);
       const cardElement = newCard.getView();
       cardList.addItem(cardElement);
@@ -81,6 +82,8 @@ const cardList = new Section(
   },
   cardConstants.placeSelector
 );
+
+
 
 
 const userInfo = new UserInfo({
@@ -93,42 +96,52 @@ const userInfo = new UserInfo({
 
 
 
+
 const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
-    loadingHandler(true, addCardConstants.modalSelector, "Generating");
+
+    // run loading handler
+
     api.fetchCard(card).then((cardData) => {
+      // debugger;
       const newCard = createCard(cardData);
       cardList.addItem(newCard.getView());
       addCardModal.close()
+    }).catch((err) => {
+      console.error(err)
+    }).finally(() => {
+      // change loading text
     })
-      .catch((err) => {
-        console.error(err)
-      })
-      .finally(() => {
-        loadingHandler(false, addCardConstants.addCardSelector, "create")
-      })
-
   },
 });
 
 
-// const profileModal = new PopupWithForm({
-//   popupSelector: profileConstants.profileModalSelector,
-//   handleFormSubmit: (data) => {
+const profileModal = new PopupWithForm({
+  popupSelector: profileConstants.profileModalSelector,
+  handleFormSubmit: (profile) => {
 
-//     userInfo.setUserInfo({
-//       userName: data.name,
-//       userDescription: data[`about-me`],
-//     })
-//   },
-// });
+    // run loading handler
+
+    api.fetchProfileInfo(profile).then((profileData) => {
+      userInfo.setUserInfo(profileData);
+      profileModal.setUserInfo(profileData);
+      profileModal.close();
+    })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        // change loading text
+      })
 
 
-
-
-
-
+    userInfo.setUserInfo({
+      userName: data.name,
+      userDescription: data[`about-me`],
+    })
+  },
+});
 
 
 const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSelector);
@@ -143,12 +156,10 @@ profileFormValidator.enableValidation();
 addFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
 
-// addCardModal.setEventListeners();
-// profileModal.setEventListeners();
+addCardModal.setEventListeners();
+profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
 
-
-// cardList.renderItems(initialCards);
 
 
 // Buttons //
@@ -165,7 +176,7 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
   profileModal.open();
-  profileModal.resetValidation();
+  // profileModal.resetValidation();
 });
 
 // avatarConstants.avatarEditButton.addEventListener("click", () => {

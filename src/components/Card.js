@@ -66,6 +66,14 @@ class Card {
         })
     }
 
+
+
+
+
+
+
+
+
     _handleLikeIcon() {
         this._heartLike.classList.toggle("elements__heart_active");
     }

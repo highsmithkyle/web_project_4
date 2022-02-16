@@ -5,6 +5,7 @@ export const cardConstants = {
 
 export const profileConstants = {
 
+    modalSelector: "modal",
     profileModalSelector: "modal_profile",
     modalProfile: document.querySelector(".modal_profile"),
     profileFormEL: document.querySelector(".modal__form_type_edit-form"),
