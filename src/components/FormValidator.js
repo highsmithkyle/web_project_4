@@ -39,7 +39,6 @@ class FormValidator {
 
   _hasValidInputs = (inputList) => {
     return inputList.every((input) => input.validity.valid);
-
   }
 
 
@@ -79,7 +78,6 @@ class FormValidator {
       e.preventDefault();
     });
     this._setEventListeners();
-
   }
 }
 

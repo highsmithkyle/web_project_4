@@ -47,6 +47,7 @@ class Card {
 
 
     _setEventListeners() {
+
         this._element
             .querySelector(".elements__image")
             .addEventListener("click", () => this._handlePreviewImage());

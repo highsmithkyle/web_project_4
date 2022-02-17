@@ -60,6 +60,7 @@ const createCard = (data) => {
         deleteCard.open(evt, data._id);
       },
       handleLikeIcon: (buttonLiked) => {
+
         return buttonLiked ? api.likeCard(data._id) : api.removeLike(data._id)
       },
       userId: userInfo.getId(),
@@ -85,16 +86,12 @@ const cardList = new Section(
 
 
 
-
 const userInfo = new UserInfo({
 
   userNameElement: profileConstants.profileTitle,
   userDescriptionElement: profileConstants.profileSubtitle,
   userAvatarElement: avatarConstants.avatarElement,
 });
-
-
-
 
 
 const addCardModal = new PopupWithForm({
@@ -184,6 +181,7 @@ avatarFormValidator.enableValidation();
 addCardModal.setEventListeners();
 profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
+changeProfileAvatarModal.setEventListeners();
 
 
 
