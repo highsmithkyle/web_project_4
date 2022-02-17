@@ -12,6 +12,7 @@ class FormValidator {
   }
 
   _showInputError = (input) => {
+
     const errorSpan = this._formEl.querySelector("#" + input.id + "-error")
     input.classList.add(this._inputErrorClass);
     errorSpan.textContent = input.validationMessage;

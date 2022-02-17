@@ -145,6 +145,7 @@ const changeProfileAvatarModal = new PopupWithForm({
     //run loading handler
 
     api.changeProfileAvatar(avatar).then((avatarData) => {
+      debugger;
       userInfo.setAvatarImage(avatarData)
       changeProfileAvatarModal.close();
     })

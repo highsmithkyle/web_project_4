@@ -24,7 +24,7 @@ export default class Api {
     }
 
     fetchCard({ name, link }) {
-        debugger;
+
         return fetch(`${this.baseUrl}/cards`, {
             method: "POST",
             headers: this.headers,
