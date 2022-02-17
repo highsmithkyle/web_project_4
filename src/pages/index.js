@@ -121,6 +121,7 @@ const profileModal = new PopupWithForm({
     // run loading handler
 
     api.fetchProfileInfo(profile).then((profileData) => {
+      debugger;
       userInfo.setUserInfo(profileData);
       profileModal.setUserInfo(profileData);
       profileModal.close();
