@@ -57,10 +57,10 @@ const createCard = (data) => {
         imageExpandModal.open(data)
       },
       handleDeleteIcon: (evt) => {
-        deleteCard.open(evt, card_id);
+        deleteCard.open(evt, data._id);
       },
       handleLikeIcon: (buttonLiked) => {
-        return buttonLiked ? api.likeCard(card._id) : api.removeLike(card._id)
+        return buttonLiked ? api.likeCard(data._id) : api.removeLike(data._id)
       },
       userId: userInfo.getId(),
     },
@@ -134,14 +134,39 @@ const profileModal = new PopupWithForm({
       .finally(() => {
         // change loading text
       })
-
-
-    userInfo.setUserInfo({
-      userName: data.name,
-      userDescription: data[`about-me`],
-    })
   },
 });
+
+
+const changeProfileAvatarModal = new PopupWithForm({
+
+  popupSelector: avatarConstants.avatarModalSelector,
+
+  handleFormSubmit: (avatar) => {
+
+    //run loading handler
+
+    api.changeProfileAvatar(avatar).then((avatarData) => {
+      userInfo.setAvatarImage(avatarData)
+      changeProfileAvatarModal.close();
+    })
+
+      .catch((error) => {
+        console.error(error)
+      })
+
+      .finally(() => {
+        // run loading handler
+      });
+
+  },
+});
+
+
+
+
+
+
 
 
 const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSelector);
@@ -179,9 +204,12 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   // profileModal.resetValidation();
 });
 
-// avatarConstants.avatarEditButton.addEventListener("click", () => {
+avatarConstants.avatarEditButton.addEventListener("click", () => {
 
-// })
+  // avatarFormValidator.resetValidation();
+  changeProfileAvatarModal.open();
+
+})
 
 
 

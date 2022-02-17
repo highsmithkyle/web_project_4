@@ -22,7 +22,7 @@ export default class UserInfo {
 
 
     setUserInfo(data) {
-        debugger;
+        // debugger;
         this._userNameEl.textContent = data.name;
         this._userDescriptionEl.textContent = data.about;
         this._userAvatarElement.src = data.avatar;

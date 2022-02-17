@@ -5,6 +5,7 @@
 @import url(../elements/__heart/elements__heart.css);
 @import url(../elements/__delete/elements__delete.css);
 @import url(../elements/__heart-container/elements__heart-container.css);
+@import url(../elements/__heart-number/element__heart-number.css);
 
 .elements {
   width: 880px;

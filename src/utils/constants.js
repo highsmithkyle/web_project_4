@@ -34,7 +34,8 @@ export const imagePreviewConstants = {
 
 export const avatarConstants = {
 
-    avatarModalEl: document.querySelector(".modal_avatar"),
+
+    avatarModalSelector: "modal_avatar",
     avatarEditButton: document.querySelector(".profile__avatar-button"),
     avatarFormEl: document.querySelector(".modal__form_type_avatar"),
     avatarElement: document.querySelector(".profile__avatar")

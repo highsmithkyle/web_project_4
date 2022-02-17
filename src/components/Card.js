@@ -39,7 +39,7 @@ class Card {
         this._element.querySelector(".elements__text").textContent = this._name
         cardImage.src = this._link;
         cardImage.alt = this._name;
-        // this._getInitialLikes(cardImage);
+        this._getInitialLikes(cardImage);
 
         return this._element;
 
@@ -65,11 +65,6 @@ class Card {
             this._liked(e)
         })
     }
-
-
-
-
-
 
 
 
