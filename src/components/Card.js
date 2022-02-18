@@ -75,6 +75,7 @@ class Card {
     }
 
     _handleDeleteIcon() {
+
         this._element.remove();
     }
 
@@ -96,7 +97,7 @@ class Card {
     _getInitialLikes() {
         const userLikeCard = this._likedCard.some((item) => item._id === this._userId);
         if (userLikeCard) {
-            debugger;
+
             this._heartLike.classList.add("elements__heart_active")
         }
         this._element.querySelector(".elements__heart-number").textContent = this._numberLikes;

@@ -38,9 +38,8 @@ const initialCards = api.getInitialCards();
 Promise.all([initialProfile, initialCards])
 
   .then(([userData, cards]) => {
-
     userInfo.setUserInfo(userData);
-    cardList.renderItems(cards);
+    cardList.renderItems(cards.reverse());
   })
   .catch((error) => {
     console.error(error);
@@ -57,7 +56,7 @@ const createCard = (data) => {
         imageExpandModal.open(data)
       },
       handleDeleteIcon: (evt) => {
-        deleteCard.open(evt, data._id);
+        deleteCardModal.open(evt, data._id);
       },
       handleLikeIcon: (buttonLiked) => {
 
@@ -98,7 +97,7 @@ const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
 
-    // run loading handler
+    // run loading 
 
     api.fetchCard(card).then((cardData) => {
       // debugger;
@@ -114,14 +113,36 @@ const addCardModal = new PopupWithForm({
 });
 
 
+const deleteCardModal = new PopupWithForm({
+  popupSelector: addCardConstants.deleteCardSelector,
+  handleFormSubmit: (cardElement, cardId) => {
+
+    // loading
+
+    api.deleteCard(cardId).then(() => {
+      cardElement.remove();
+      deleteCardModal.close();
+
+    }).catch((error) => {
+      console.error(error)
+
+    }).finally(() => {
+
+      // change loading text
+    })
+
+  }
+})
+
+
 const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
   handleFormSubmit: (profile) => {
 
-    // run loading handler
+    // run loading
 
     api.fetchProfileInfo(profile).then((profileData) => {
-      debugger;
+      // debugger;
       userInfo.setUserInfo(profileData);
       profileModal.setUserInfo(profileData);
       profileModal.close();

@@ -4,15 +4,16 @@
   background-color: black;
   color: white;
   margin: 48px 36px 36.51px;
+
   font-size: 18px;
   line-height: 21.78px;
   border-radius: 2px;
-  transition: .5s linear;
+  transition: 0.5s linear;
   border: 0px;
 }
 
 .modal__save-button:hover {
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -20,7 +21,7 @@
   .modal__save-button {
     width: 238px;
     height: 46px;
-    margin: 46px 22px 25px;
+    margin: 0 auto 0;
     font-size: 14px;
     line-height: 17px;
     max-width: 238px;
