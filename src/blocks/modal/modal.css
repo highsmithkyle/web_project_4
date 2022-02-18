@@ -9,6 +9,8 @@
 @import url(../modal/__image-subtitle/modal__image-subtitle.css);
 @import url(../modal/__error/modal__error.css);
 @import url(../modal/__info/_type/modal__info_type_error.css);
+@import url(../modal/__title/_type/modal__title-type-delete.css);
+@import url(../modal/__save-button/_type/modal__save-button_type_delete.css);
 
 .modal {
   display: flex;
