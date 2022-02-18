@@ -57,7 +57,6 @@ Promise.all([initialProfile, initialCards])
 
 
 
-
 const createCard = (data) => {
   const card = new Card(
     {
@@ -78,8 +77,6 @@ const createCard = (data) => {
   );
   return card
 }
-
-
 
 
 const cardList = new Section(
@@ -126,10 +123,10 @@ const deleteCardModal = new PopupWithForm({
   popupSelector: addCardConstants.deleteCardSelector,
   handleFormSubmit: (cardElement, cardId) => {
 
+
     loadingHandler(true, addCardConstants.deleteCardSelector, "Deleting...");
 
     api.deleteCard(cardId).then(() => {
-      debugger;
       cardElement.remove();
       deleteCardModal.close();
     }).catch((error) => {
@@ -148,17 +145,14 @@ const profileModal = new PopupWithForm({
     loadingHandler(true, profileConstants.profileModalSelector, "Updating...")
 
     api.fetchProfileInfo(profile).then((profileData) => {
-      // debugger;
       userInfo.setUserInfo(profileData);
       profileModal.setUserInfo(profileData);
       profileModal.close();
+    }).catch((error) => {
+      console.error(error);
+    }).finally(() => {
+      loadingHandler(false, profileConstants.profileModalSelector, "Update")
     })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        loadingHandler(false, profileConstants.profileModalSelector, "Update")
-      })
   },
 });
 
@@ -172,26 +166,16 @@ const changeProfileAvatarModal = new PopupWithForm({
     loadingHandler(true, avatarConstants.avatarModalSelector, "Updating...")
 
     api.changeProfileAvatar(avatar).then((avatarData) => {
-      debugger;
       userInfo.setAvatarImage(avatarData)
       changeProfileAvatarModal.close();
-    })
-
-      .catch((error) => {
-        console.error(error)
-      })
-
-      .finally(() => {
-        loadingHandler(false, avatarConstants.avatarModalSelector, "Update")
-      });
+    }).catch((error) => {
+      console.error(error)
+    }).finally(() => {
+      loadingHandler(false, avatarConstants.avatarModalSelector, "Update")
+    });
 
   },
 });
-
-
-
-
-
 
 
 
@@ -211,6 +195,7 @@ addCardModal.setEventListeners();
 profileModal.setEventListeners();
 imageExpandModal.setEventListeners();
 changeProfileAvatarModal.setEventListeners();
+deleteCardModal.setEventListeners();
 
 
 
@@ -228,14 +213,10 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
   profileModal.open();
-  // profileModal.resetValidation();
 });
 
 avatarConstants.avatarEditButton.addEventListener("click", () => {
-
-  // avatarFormValidator.resetValidation();
   changeProfileAvatarModal.open();
-
 })
 
 

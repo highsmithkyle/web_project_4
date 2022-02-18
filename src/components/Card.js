@@ -52,6 +52,7 @@ class Card {
 
         this._deleteButton = this._element.querySelector(".elements__delete");
         if (this._ownerId === this._userId) {
+
             this._deleteButton.addEventListener("click", (evt) => {
                 this._handleDeleteIcon(evt);
             });
@@ -65,13 +66,13 @@ class Card {
         })
     }
 
-    _handleLikeIcon() {
-        this._heartLike.classList.toggle("elements__heart_active");
-    }
+    // _handleLikeIcon() {
+    //     this._heartLike.classList.toggle("elements__heart_active");
+    // }
 
-    _handleDeleteIcon() {
-        this._element.remove();
-    }
+    // _handleDeleteIcon() {
+    //     this._element.remove();
+    // }
 
 
     _checkLikes(data) {
@@ -80,9 +81,11 @@ class Card {
 
     _liked(e) {
 
+
         this._handleLikeIcon(
             !e.target.classList.contains(".elements__heart_active")
         ).then((data) => {
+            e.target.classList.toggle(".elements__heart_active");
             this._checkLikes(data);
         }).catch((error) => {
             console.log(`Error:${error}`)
