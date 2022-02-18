@@ -1,8 +1,6 @@
 class Card {
 
-
     constructor({ data, handlePreviewImage, handleLikeIcon, handleDeleteIcon, userId }, cardSelector) {
-
 
         this._userId = userId;
         this._name = data.name;
@@ -67,15 +65,11 @@ class Card {
         })
     }
 
-
-
-
     _handleLikeIcon() {
         this._heartLike.classList.toggle("elements__heart_active");
     }
 
     _handleDeleteIcon() {
-
         this._element.remove();
     }
 
@@ -85,6 +79,7 @@ class Card {
     }
 
     _liked(e) {
+
         this._handleLikeIcon(
             !e.target.classList.contains(".elements__heart_active")
         ).then((data) => {
@@ -97,13 +92,10 @@ class Card {
     _getInitialLikes() {
         const userLikeCard = this._likedCard.some((item) => item._id === this._userId);
         if (userLikeCard) {
-
             this._heartLike.classList.add("elements__heart_active")
         }
         this._element.querySelector(".elements__heart-number").textContent = this._numberLikes;
     }
-
-
 
 }
 
