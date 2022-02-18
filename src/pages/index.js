@@ -21,6 +21,16 @@ import Api from "../components/Api"
 
 
 
+function loadingHandler(loading, popupSelector, text) {
+  const modal = document.querySelector(`.${popupSelector}`);
+  if (loading) {
+    modal.querySelector(".modal__save-button").textContent = text;
+  } else {
+    modal.querySelector(".modal__save-button").textContent = text;
+  }
+}
+
+
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -97,17 +107,16 @@ const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
 
-    // run loading 
+    loadingHandler(true, addCardConstants.addCardSelector, "Creating...")
 
     api.fetchCard(card).then((cardData) => {
-      // debugger;
       const newCard = createCard(cardData);
       cardList.addItem(newCard.getView());
       addCardModal.close()
     }).catch((err) => {
       console.error(err)
     }).finally(() => {
-      // change loading text
+      loadingHandler(false, addCardConstants.addCardSelector, "Create");
     })
   },
 });
@@ -117,20 +126,17 @@ const deleteCardModal = new PopupWithForm({
   popupSelector: addCardConstants.deleteCardSelector,
   handleFormSubmit: (cardElement, cardId) => {
 
-    // loading
+    loadingHandler(true, addCardConstants.deleteCardSelector, "Deleting...");
 
     api.deleteCard(cardId).then(() => {
+      debugger;
       cardElement.remove();
       deleteCardModal.close();
-
     }).catch((error) => {
       console.error(error)
-
     }).finally(() => {
-
-      // change loading text
+      loadingHandler(false, addCardConstants.deleteCardSelector, "Delete");
     })
-
   }
 })
 
@@ -139,7 +145,7 @@ const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
   handleFormSubmit: (profile) => {
 
-    // run loading
+    loadingHandler(true, profileConstants.profileModalSelector, "Updating...")
 
     api.fetchProfileInfo(profile).then((profileData) => {
       // debugger;
@@ -151,7 +157,7 @@ const profileModal = new PopupWithForm({
         console.error(error);
       })
       .finally(() => {
-        // change loading text
+        loadingHandler(false, profileConstants.profileModalSelector, "Update")
       })
   },
 });
@@ -163,7 +169,7 @@ const changeProfileAvatarModal = new PopupWithForm({
 
   handleFormSubmit: (avatar) => {
 
-    //run loading handler
+    loadingHandler(true, avatarConstants.avatarModalSelector, "Updating...")
 
     api.changeProfileAvatar(avatar).then((avatarData) => {
       debugger;
@@ -176,7 +182,7 @@ const changeProfileAvatarModal = new PopupWithForm({
       })
 
       .finally(() => {
-        // run loading handler
+        loadingHandler(false, avatarConstants.avatarModalSelector, "Update")
       });
 
   },
