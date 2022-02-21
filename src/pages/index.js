@@ -18,6 +18,7 @@ import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 import Api from "../components/Api"
+import PopupWithFormDelete from "../components/PopupWithFormDelete";
 
 
 
@@ -116,7 +117,7 @@ const addCardModal = new PopupWithForm({
 });
 
 
-const deleteCardModal = new PopupWithForm({
+const deleteCardModal = new PopupWithFormDelete({
   popupSelector: addCardConstants.deleteCardSelector,
   handleFormSubmit: (cardElement, cardId) => {
 

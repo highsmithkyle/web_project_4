@@ -8,6 +8,7 @@ export default class PopupWithFormDelete extends Popup {
 
         this._popupForm = this._modalElement.querySelector(".modal__form");
         this._handleFormSubmit = handleFormSubmit;
+        this._button = this._modalElement.querySelector(".modal__save-button")
     }
 
     open(evt, cardId) {
