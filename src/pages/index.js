@@ -21,7 +21,7 @@ import Api from "../components/Api"
 
 
 
-function loadingHandler(loading, popupSelector, text) {
+function changeLoadingText(loading, popupSelector, text) {
   const modal = document.querySelector(`.${popupSelector}`);
   if (loading) {
     modal.querySelector(".modal__save-button").textContent = text;
@@ -29,7 +29,6 @@ function loadingHandler(loading, popupSelector, text) {
     modal.querySelector(".modal__save-button").textContent = text;
   }
 }
-
 
 
 const api = new Api({
@@ -68,7 +67,6 @@ const createCard = (data) => {
         deleteCardModal.open(evt, data._id);
       },
       handleLikeIcon: (buttonLiked) => {
-
         return buttonLiked ? api.likeCard(data._id) : api.removeLike(data._id)
       },
       userId: userInfo.getId(),
@@ -91,7 +89,6 @@ const cardList = new Section(
 );
 
 
-
 const userInfo = new UserInfo({
 
   userNameElement: profileConstants.profileTitle,
@@ -104,7 +101,7 @@ const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
   handleFormSubmit: (card) => {
 
-    loadingHandler(true, addCardConstants.addCardSelector, "Creating...")
+    changeLoadingText(true, addCardConstants.addCardSelector, "Creating...")
 
     api.fetchCard(card).then((cardData) => {
       const newCard = createCard(cardData);
@@ -113,7 +110,7 @@ const addCardModal = new PopupWithForm({
     }).catch((err) => {
       console.error(err)
     }).finally(() => {
-      loadingHandler(false, addCardConstants.addCardSelector, "Create");
+      changeLoadingText(false, addCardConstants.addCardSelector, "Create");
     })
   },
 });
@@ -123,16 +120,16 @@ const deleteCardModal = new PopupWithForm({
   popupSelector: addCardConstants.deleteCardSelector,
   handleFormSubmit: (cardElement, cardId) => {
 
-
-    loadingHandler(true, addCardConstants.deleteCardSelector, "Deleting...");
+    changeLoadingText(true, addCardConstants.deleteCardSelector, "Deleting...");
 
     api.deleteCard(cardId).then(() => {
+
       cardElement.remove();
       deleteCardModal.close();
     }).catch((error) => {
       console.error(error)
     }).finally(() => {
-      loadingHandler(false, addCardConstants.deleteCardSelector, "Delete");
+      changeLoadingText(false, addCardConstants.deleteCardSelector, "Delete");
     })
   }
 })
@@ -142,7 +139,7 @@ const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
   handleFormSubmit: (profile) => {
 
-    loadingHandler(true, profileConstants.profileModalSelector, "Updating...")
+    changeLoadingText(true, profileConstants.profileModalSelector, "Updating...")
 
     api.fetchProfileInfo(profile).then((profileData) => {
       userInfo.setUserInfo(profileData);
@@ -151,7 +148,7 @@ const profileModal = new PopupWithForm({
     }).catch((error) => {
       console.error(error);
     }).finally(() => {
-      loadingHandler(false, profileConstants.profileModalSelector, "Update")
+      changeLoadingText(false, profileConstants.profileModalSelector, "Update")
     })
   },
 });
@@ -163,7 +160,7 @@ const changeProfileAvatarModal = new PopupWithForm({
 
   handleFormSubmit: (avatar) => {
 
-    loadingHandler(true, avatarConstants.avatarModalSelector, "Updating...")
+    changeLoadingText(true, avatarConstants.avatarModalSelector, "Updating...")
 
     api.changeProfileAvatar(avatar).then((avatarData) => {
       userInfo.setAvatarImage(avatarData)
@@ -171,7 +168,7 @@ const changeProfileAvatarModal = new PopupWithForm({
     }).catch((error) => {
       console.error(error)
     }).finally(() => {
-      loadingHandler(false, avatarConstants.avatarModalSelector, "Update")
+      changeLoadingText(false, avatarConstants.avatarModalSelector, "Update")
     });
 
   },
@@ -186,10 +183,10 @@ const addFormValidator = new FormValidator(validationSettings, addCardConstants.
 const avatarFormValidator = new FormValidator(validationSettings, avatarConstants.avatarFormEl);
 
 
-
 profileFormValidator.enableValidation();
 addFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
+
 
 addCardModal.setEventListeners();
 profileModal.setEventListeners();
@@ -212,10 +209,13 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   const profileInfo = userInfo.getUserInfo();
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
+
+  profileFormValidator.resetValidation();
   profileModal.open();
 });
 
 avatarConstants.avatarEditButton.addEventListener("click", () => {
+  avatarFormValidator.resetValidation();
   changeProfileAvatarModal.open();
 })
 

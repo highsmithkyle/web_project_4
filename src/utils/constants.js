@@ -22,6 +22,7 @@ export const addCardConstants = {
 
     addCardSelector: "modal_add-card",
     deleteCardSelector: "modal_delete",
+    deleteCardForm: "modal__form_type_delete",
     addModalEl: document.querySelector(".modal_add-card"),
     addFormEl: document.querySelector(".modal__form_type_new-place"),
     addFormCloseButton: document.querySelector(".modal__close-button_type_new-place"),

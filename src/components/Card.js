@@ -43,7 +43,6 @@ class Card {
 
     }
 
-
     _setEventListeners() {
 
         this._element
@@ -52,43 +51,30 @@ class Card {
 
         this._deleteButton = this._element.querySelector(".elements__delete");
         if (this._ownerId === this._userId) {
-
             this._deleteButton.addEventListener("click", (evt) => {
                 this._handleDeleteIcon(evt);
             });
         } else {
             this._deleteButton.remove();
         }
-
         this._heartLike = this._element.querySelector(".elements__heart")
         this._heartLike.addEventListener("click", (e) => {
             this._liked(e)
         })
     }
 
-    // _handleLikeIcon() {
-    //     this._heartLike.classList.toggle("elements__heart_active");
-    // }
-
-    // _handleDeleteIcon() {
-    //     this._element.remove();
-    // }
-
-
     _checkLikes(data) {
         this._element.querySelector(".elements__heart-number").textContent = data.likes.length;
     }
 
     _liked(e) {
-
-
         this._handleLikeIcon(
-            !e.target.classList.contains(".elements__heart_active")
+            !e.target.classList.contains("elements__heart_active")
         ).then((data) => {
-            e.target.classList.toggle(".elements__heart_active");
+            e.target.classList.toggle("elements__heart_active");
             this._checkLikes(data);
         }).catch((error) => {
-            console.log(`Error:${error}`)
+            console.error(error)
         });
     }
 
@@ -99,7 +85,6 @@ class Card {
         }
         this._element.querySelector(".elements__heart-number").textContent = this._numberLikes;
     }
-
 }
 
 export default Card;

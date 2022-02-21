@@ -24,7 +24,6 @@ export default class Api {
     }
 
     fetchCard({ name, link }) {
-
         return fetch(`${this.baseUrl}/cards`, {
             method: "POST",
             headers: this.headers,
@@ -33,7 +32,6 @@ export default class Api {
     }
 
     fetchProfileInfo({ name, about }) {
-
         return fetch(`${this.baseUrl}/users/me`, {
             method: "PATCH",
             headers: this.headers,
@@ -50,6 +48,7 @@ export default class Api {
     }
 
     deleteCard(cardId) {
+        debugger;
         return fetch(`${this.baseUrl}/cards/${cardId}`, {
             method: "DELETE",
             headers: this.headers,
@@ -57,7 +56,6 @@ export default class Api {
     }
 
     likeCard(cardId) {
-
         return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
             method: "PUT",
             headers: this.headers,
@@ -65,8 +63,6 @@ export default class Api {
     }
 
     removeLike(cardId) {
-
-
         return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
             method: "DELETE",
             headers: this.headers,
