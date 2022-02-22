@@ -12,14 +12,12 @@ import {
 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js"
-// import initialCards from "../utils/InitialCards.js"
 import PopupWithImage from "../components/PopupWithImage";
 import PopupWithForm from "../components/PopupWithForm";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo";
 import Api from "../components/Api"
 import PopupWithFormDelete from "../components/PopupWithFormDelete";
-
 
 
 function changeLoadingText(loading, popupSelector, text) {
@@ -30,7 +28,6 @@ function changeLoadingText(loading, popupSelector, text) {
     modal.querySelector(".modal__save-button").textContent = text;
   }
 }
-
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -44,7 +41,6 @@ const initialProfile = api.getInitialProfile();
 const initialCards = api.getInitialCards();
 
 
-
 Promise.all([initialProfile, initialCards])
 
   .then(([userData, cards]) => {
@@ -54,7 +50,6 @@ Promise.all([initialProfile, initialCards])
   .catch((error) => {
     console.error(error);
   });
-
 
 
 const createCard = (data) => {
@@ -78,20 +73,18 @@ const createCard = (data) => {
 }
 
 
-const cardList = new Section(
-  {
-    renderer: (card) => {
-      const newCard = createCard(card);
-      const cardElement = newCard.getView();
-      cardList.addItem(cardElement);
-    },
+const cardList = new Section({
+  renderer: (card) => {
+    const newCard = createCard(card);
+    const cardElement = newCard.getView();
+    cardList.addItem(cardElement);
   },
+},
   cardConstants.placeSelector
 );
 
 
 const userInfo = new UserInfo({
-
   userNameElement: profileConstants.profileTitle,
   userDescriptionElement: profileConstants.profileSubtitle,
   userAvatarElement: avatarConstants.avatarElement,
@@ -100,16 +93,18 @@ const userInfo = new UserInfo({
 
 const addCardModal = new PopupWithForm({
   popupSelector: addCardConstants.addCardSelector,
-  handleFormSubmit: (card) => {
 
+  handleFormSubmit: (card) => {
     changeLoadingText(true, addCardConstants.addCardSelector, "Creating...")
 
     api.fetchCard(card).then((cardData) => {
       const newCard = createCard(cardData);
       cardList.addItem(newCard.getView());
       addCardModal.close()
+
     }).catch((err) => {
       console.error(err)
+
     }).finally(() => {
       changeLoadingText(false, addCardConstants.addCardSelector, "Create");
     })
@@ -119,16 +114,17 @@ const addCardModal = new PopupWithForm({
 
 const deleteCardModal = new PopupWithFormDelete({
   popupSelector: addCardConstants.deleteCardSelector,
-  handleFormSubmit: (cardElement, cardId) => {
 
+  handleFormSubmit: (cardElement, cardId) => {
     changeLoadingText(true, addCardConstants.deleteCardSelector, "Deleting...");
 
     api.deleteCard(cardId).then(() => {
-
       cardElement.remove();
       deleteCardModal.close();
+
     }).catch((error) => {
       console.error(error)
+
     }).finally(() => {
       changeLoadingText(false, addCardConstants.deleteCardSelector, "Delete");
     })
@@ -138,16 +134,18 @@ const deleteCardModal = new PopupWithFormDelete({
 
 const profileModal = new PopupWithForm({
   popupSelector: profileConstants.profileModalSelector,
+
   handleFormSubmit: (profile) => {
 
     changeLoadingText(true, profileConstants.profileModalSelector, "Updating...")
 
     api.fetchProfileInfo(profile).then((profileData) => {
       userInfo.setUserInfo(profileData);
-      profileModal.setUserInfo(profileData);
       profileModal.close();
+
     }).catch((error) => {
       console.error(error);
+
     }).finally(() => {
       changeLoadingText(false, profileConstants.profileModalSelector, "Update")
     })
@@ -164,17 +162,18 @@ const changeProfileAvatarModal = new PopupWithForm({
     changeLoadingText(true, avatarConstants.avatarModalSelector, "Updating...")
 
     api.changeProfileAvatar(avatar).then((avatarData) => {
-      userInfo.setAvatarImage(avatarData)
+      userInfo.setUserInfo(avatarData)
       changeProfileAvatarModal.close();
+
     }).catch((error) => {
       console.error(error)
+
     }).finally(() => {
       changeLoadingText(false, avatarConstants.avatarModalSelector, "Update")
     });
 
   },
 });
-
 
 
 const imageExpandModal = new PopupWithImage(imagePreviewConstants.imagePreviewSelector);
@@ -211,7 +210,7 @@ profileConstants.profileEditButton.addEventListener("click", () => {
   profileConstants.profileFormNameInput.value = profileInfo.userName;
   profileConstants.profileFormAboutMeInput.value = profileInfo.userDescription;
 
-  profileFormValidator.resetValidation();
+  // profileFormValidator.resetValidation();
   profileModal.open();
 });
 

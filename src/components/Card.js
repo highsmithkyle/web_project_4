@@ -13,7 +13,6 @@ class Card {
         this._cardId = data._id;
         this._ownerId = data.owner._id;
 
-
         this._cardSelector = cardSelector;
     }
 
@@ -49,6 +48,8 @@ class Card {
             .querySelector(".elements__image")
             .addEventListener("click", () => this._handlePreviewImage());
 
+        this._numberOfLikes = this._element.querySelector(".elements__heart-number");
+
         this._deleteButton = this._element.querySelector(".elements__delete");
         if (this._ownerId === this._userId) {
             this._deleteButton.addEventListener("click", (evt) => {
@@ -64,7 +65,7 @@ class Card {
     }
 
     _checkLikes(data) {
-        this._element.querySelector(".elements__heart-number").textContent = data.likes.length;
+        this._numberOfLikes.textContent = data.likes.length;
     }
 
     _liked(e) {

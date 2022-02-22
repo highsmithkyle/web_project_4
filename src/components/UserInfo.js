@@ -22,18 +22,11 @@ export default class UserInfo {
 
 
     setUserInfo(data) {
-        // debugger;
         this._userNameEl.textContent = data.name;
         this._userDescriptionEl.textContent = data.about;
         this._userAvatarElement.src = data.avatar;
         this._userId = data._id;
+
     }
-
-
-
-    setAvatarImage(data) {
-        this._userAvatarElement.src = data.avatar;
-    }
-
 }
 
